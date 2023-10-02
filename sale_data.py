@@ -2,59 +2,58 @@ import random
 import datetime
 
 # Define the number of days and weeks
-num_weeks = 52
-days_per_week = 7
-total_days = num_weeks * days_per_week
-order_ids = 1
+order_id = 1
+drink_id = 1
+topping_id = 1
+ingredient_id = 1
 total = 0
-drinks = []
 toppings = ["Boba", "Lychee Coconut Jelly", "Sago", "Aiyu", "Agar Boba", "Aloe Vera", "Cheese Foam", "Red Bean", "Black Glutinous Rice", "Grass Jelly", "Taro Mochi"]
 peak_days = ["2022-08-25", "2022-05-12"]
 drinks_dict = {
-    "sun moon lake black tea": [4.25, 101],
-    "pouchong green tea": [4.25, 102],
-    "songboling mountain tea": [4.25, 103],
-    "lugu oolong tea": [4.25, 104],
-    "tea w/ original salty cream": [4.99, 105],
-    "brown sugar pearl latte": [6.25, 201],
-    "brown sugar pearl milk tea": [6.25, 202],
-    "brown sugar pearl matcha latte": [6.45, 203],
-    "traditional milk tea": [4.99, 301],
-    "super trio traditional milk tea": [5.75, 302],
-    "tea latte": [5.25, 303],
-    "matcha latte":	[5.99, 304],
-    "peach green milk tea":	[5.99, 305],
-    "avocado mango agar cooler": [7.49, 401],
-    "mango pomelo sago cooler":	[7.75, 402],
-    "yiFang taiwan fruit tea": [5.75, 403],
-    "watermelon coconut agar cooler": [6.25, 404],
-    "kumquat passion gruit tea": [5.25, 405],
-    "green plum green tea": [4.99, 406],
-    "peach fruit tea": [5.49, 407],
-    "peach soda pop": [5.49, 408],
-    "strawberry fruit tea":	[6.25, 409],
-    "strawberry milk (blended)": [6.25, 410],
-    "yakult fruit tea":	[5.99, 411],
-    "passion fruit green tea": [5.25, 412],
-    "pineapple green tea": [5.25, 413],
-    "winter melon lemon tea": [4.99, 414],
-    "lemon mountain tea": [4.99, 415],
-    "lemon green tea": [4.99, 416],
-    "aiyu jelly lemon tea":	[4.99, 417],
-    "sugarcane mountain tea": [6.25, 501],
-    "sugarcane lemon mountain tea":	[6.25, 502],
-    "fresh taro latte":	[5.99, 601],
-    "fresh taro green tea latte": [5.99, 602],
-    "sweet taro sago latte": [6.75, 603],
-    "red bean black glutinous rice with coconut latte": [6.25, 604],
-    "red bean sago latte": [6.25, 605],
-    "red bean match frappe with boba": [6.25, 606],
-    "super trio winter melon tea": [5.00, 701],
-    "winter melon tea": [4.25, 702],
-    "winter melon latte": [4.75, 703],
-    "grass jelly tea": [4.25, 704],
-    "black sesame milk": [6.25, 705],
-    "thai tea": [4.25, 706]
+    "sun moon lake black tea": 4.25,
+    "pouchong green tea": 4.25,
+    "songboling mountain tea": 4.25,
+    "lugu oolong tea": 4.25,
+    "tea w/ original salty cream": 4.99,
+    "brown sugar pearl latte": 6.25,
+    "brown sugar pearl milk tea": 6.25,
+    "brown sugar pearl matcha latte": 6.45,
+    "traditional milk tea": 4.99,
+    "super trio traditional milk tea": 5.75,
+    "tea latte": 5.25,
+    "matcha latte":	5.99,
+    "peach green milk tea":	5.99,
+    "avocado mango agar cooler": 7.49,
+    "mango pomelo sago cooler":	7.75,
+    "yiFang taiwan fruit tea": 5.75,
+    "watermelon coconut agar cooler": 6.25,
+    "kumquat passion gruit tea": 5.25,
+    "green plum green tea": 4.99,
+    "peach fruit tea": 5.49,
+    "peach soda pop": 5.49,
+    "strawberry fruit tea":	6.25,
+    "strawberry milk (blended)": 6.25,
+    "yakult fruit tea":	5.99,
+    "passion fruit green tea": 5.25,
+    "pineapple green tea": 5.25,
+    "winter melon lemon tea": 4.99,
+    "lemon mountain tea": 4.99,
+    "lemon green tea": 4.99,
+    "aiyu jelly lemon tea":	4.99,
+    "sugarcane mountain tea": 6.25,
+    "sugarcane lemon mountain tea":	6.25,
+    "fresh taro latte":	5.99,
+    "fresh taro green tea latte": 5.99,
+    "sweet taro sago latte": 6.75,
+    "red bean black glutinous rice with coconut latte": 6.25,
+    "red bean sago latte": 6.25,
+    "red bean match frappe with boba": 6.25,
+    "super trio winter melon tea": 5.00,
+    "winter melon tea": 4.25,
+    "winter melon latte": 4.75,
+    "grass jelly tea": 4.25,
+    "black sesame milk": 6.25,
+    "thai tea": 4.25
 }
 ingredient_dict = {
     "sun moon lake black tea": ["black tea"],
@@ -105,19 +104,15 @@ ingredient_dict = {
 
 x = open("drinks_data.csv", "w+")
 y = open("addons_data.csv", "w+")
+z = open("ingredients_data.csv", "w+")
 with open("yifang_data.csv", "w+") as f:
 
     for i in range(1, 85000):
         staff_id = random.randint(1, 10)  # Random staff_id between 1 and 10
         payment_method = 'Card' if random.random() < 0.7 else 'Cash'  # 70% Card, 30% Cash
+        transaction_date = str(datetime.date(2022, 1, 1) + datetime.timedelta(days = random.randint(0, 365)))
         
-        start_date = datetime.date(2022, 1, 1)
-        end_date = datetime.date(2022, 12, 31)
-        days_between = (end_date - start_date).days
-        random_days = random.randint(0, days_between)
-        transaction_date = str(start_date + datetime.timedelta(days = random_days))
-        
-        payment_amounts = 0
+        payment_amount = 0
         
         temp = random.random()
         if temp < 0.05:
@@ -142,28 +137,37 @@ with open("yifang_data.csv", "w+") as f:
             else:
                 topping = 0
             
+            #
             drink = random.choice(list(drinks_dict.items()))
-            x.write(str(drink[1][1]) + ", " + str(order_ids) + ", " + drink[0] + ", " + str(drink[1][0]) + ", " + str(topping) + ", " + str(ingredient_dict[drink[0]]) + "\n")
-            payment_amounts += drink[1][0] + (topping * 0.75)
+            x.write(str(drink_id) + ", " + str(order_id) + ", " + drink[0] + ", " + str(drink[1]) + ", " + str(topping) + "\n")
+            payment_amount += drink[1] + (topping * 0.75)
+            
+            for i in ingredient_dict[drink[0]]:
+                z.write(str(drink_id) + ", " + str(ingredient_id) + ", " + i + "\n")
+                ingredient_id += 1
             
             for i in range(topping):
                 temp = random.choice(toppings)
-                y.write(str(toppings.index(temp) + 1) + ", " + str(drinks_dict[drink[0]][1]) + ", " + random.choice(toppings) + "\n")
+                y.write(str(topping_id) + ", " + str(drink_id) + ", " + random.choice(toppings) + "\n")
+                topping_id += 1
+            
+            
+            drink_id += 1
 
-        f.write(str(order_ids) + ' ')
+        f.write(str(order_id) + ' ')
         f.write(str(staff_id) + ' ')
         f.write(transaction_date + ' ')
         f.write(payment_method + ' ')
-        f.write(f'{payment_amounts + (payment_amounts * 0.0725):.2f}' + '\n')
+        f.write(f'{payment_amount + (payment_amount * 0.0725):.2f}' + '\n')
 
-        total += payment_amounts
-        order_ids += 1
+        total += payment_amount
+        order_id += 1
         
     for i in range(1500):
         staff_id = random.randint(1, 10)  # Random staff_id between 1 and 10
         payment_method = 'Card' if random.random() < 0.7 else 'Cash'  # 70% Card, 30% Cash
         
-        payment_amounts = 0
+        payment_amount = 0
         
         temp = random.random()
         if temp < 0.05:
@@ -189,21 +193,27 @@ with open("yifang_data.csv", "w+") as f:
                 topping = 0
             
             drink = random.choice(list(drinks_dict.items()))
-            x.write(str(drink[1][1]) + ", " + str(order_ids) + ", " + drink[0] + ", " + str(drink[1][0]) + ", " + str(topping) + ", " + str(ingredient_dict[drink[0]]) + "\n")
-            payment_amounts += drink[1][0] + (topping * 0.75)
+            x.write(str(drink_id) + ", " + str(order_id) + ", " + drink[0] + ", " + str(drink[1]) + ", " + str(topping) + "\n")
+            payment_amount += drink[1] + (topping * 0.75)
+            
+            for i in ingredient_dict[drink[0]]:
+                z.write(str(drink_id) + ", " + str(ingredient_id) + ", " + i + "\n")
+                ingredient_id += 1
             
             for i in range(topping):
                 temp = random.choice(toppings)
-                y.write(str(toppings.index(temp) + 1) + ", " + str(drinks_dict[drink[0]][1]) + ", " + random.choice(toppings) + "\n")
+                y.write(str(topping_id) + ", " + str(drink_id) + ", " + random.choice(toppings) + "\n")
+                topping_id += 1
+            drink_id += 1
 
-        f.write(str(order_ids) + ' ')
+        f.write(str(order_id) + ' ')
         f.write(str(staff_id) + ' ')
         f.write(random.choice(peak_days) + ' ')
         f.write(payment_method + ' ')
-        f.write(f'{payment_amounts + (payment_amounts * 0.0725):.2f}' + '\n')
+        f.write(f'{payment_amount + (payment_amount * 0.0725):.2f}' + '\n')
 
-        total += payment_amounts
-        order_ids += 1
+        total += payment_amount
+        order_id += 1
 
 y.close()
 x.close()
