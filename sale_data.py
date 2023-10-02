@@ -148,9 +148,7 @@ with open("yifang_data.csv", "w+") as f:
             
             for i in range(topping):
                 temp = random.choice(toppings)
-                y.write(random.choice(toppings) + ", " + str(drinks_dict[drink[0]][1]) + ", " + str(toppings.index(temp) + 1))
-                y.write("\n")
-            # topping id, 
+                y.write(str(toppings.index(temp) + 1) + ", " + str(drinks_dict[drink[0]][1]) + ", " + random.choice(toppings) + "\n")
 
         f.write(str(order_ids) + ' ')
         f.write(str(staff_id) + ' ')
@@ -196,9 +194,7 @@ with open("yifang_data.csv", "w+") as f:
             
             for i in range(topping):
                 temp = random.choice(toppings)
-                y.write(random.choice(toppings) + ", " + str(drinks_dict[drink[0]][1]) + ", " + str(toppings.index(temp) + 1))
-                y.write("\n")
-            # topping id, 
+                y.write(str(toppings.index(temp) + 1) + ", " + str(drinks_dict[drink[0]][1]) + ", " + random.choice(toppings) + "\n")
 
         f.write(str(order_ids) + ' ')
         f.write(str(staff_id) + ' ')
@@ -208,7 +204,6 @@ with open("yifang_data.csv", "w+") as f:
 
         total += payment_amounts
         order_ids += 1
-        
 
 y.close()
 x.close()
