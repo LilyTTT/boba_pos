@@ -155,7 +155,10 @@ ingredient_dict = {
     "mango chunks": 50,
     "lime": 51,
     "blended uji matcha": 52,
-    "blended strawberries": 53
+    "blended strawberries": 53,
+    "cups": 54,
+    "straws": 55,
+    "lids": 56,
 }
 
 x = open("drinks_data.csv", "w+")
@@ -204,6 +207,9 @@ with open("yifang_data.csv", "w+") as f:
                 elif "pineapple/" in i:
                     i = "pineapple"
                 z.write(str(drink_id) + ", " + str(ingredient_dict[i]) + "\n")
+            z.write(str(drink_id) + ", " + str(ingredient_dict["cups"]) + "\n")
+            z.write(str(drink_id) + ", " + str(ingredient_dict["lids"]) + "\n")
+            z.write(str(drink_id) + ", " + str(ingredient_dict["straws"]) + "\n")
             
             for i in range(topping):
                 temp = random.choice(toppings)
@@ -260,6 +266,9 @@ with open("yifang_data.csv", "w+") as f:
                 elif "pineapple/" in i:
                     i = "pineapple"
                 z.write(str(drink_id) + ", " + str(ingredient_dict[i]) + "\n")
+            z.write(str(drink_id) + ", " + str(ingredient_dict["cups"]) + "\n")
+            z.write(str(drink_id) + ", " + str(ingredient_dict["lids"]) + "\n")
+            z.write(str(drink_id) + ", " + str(ingredient_dict["straws"]) + "\n")
             
             for i in range(topping):
                 temp = random.choice(toppings)
