@@ -5,9 +5,9 @@ import datetime
 order_id = 1
 drink_id = 1
 topping_id = 1
-ingredient_id = 1
+# ingredient_id = 1
 total = 0
-toppings = ["Boba", "Lychee Coconut Jelly", "Sago", "Aiyu", "Agar Boba", "Aloe Vera", "Cheese Foam", "Red Bean", "Black Glutinous Rice", "Grass Jelly", "Taro Mochi"]
+toppings = ["boba", "lychee coconut jelly", "sago", "aiyu", "agar boba", "aloe vera", "cheese foam", "red bean", "black glutinous rice", "grass jelly", "taro mochi"]
 peak_days = ["2022-08-25", "2022-05-12"]
 drinks_dict = {
     "sun moon lake black tea": 4.25,
@@ -27,16 +27,16 @@ drinks_dict = {
     "mango pomelo sago cooler":	7.75,
     "yiFang taiwan fruit tea": 5.75,
     "watermelon coconut agar cooler": 6.25,
-    "kumquat passion gruit tea": 5.25,
+    "kumquat passionfruit tea": 5.25,
     "green plum green tea": 4.99,
     "peach fruit tea": 5.49,
     "peach soda pop": 5.49,
     "strawberry fruit tea":	6.25,
     "strawberry milk (blended)": 6.25,
     "yakult fruit tea":	5.99,
-    "passion fruit green tea": 5.25,
+    "passionfruit green tea": 5.25,
     "pineapple green tea": 5.25,
-    "winter melon lemon tea": 4.99,
+    "wintermelon lemon tea": 4.99,
     "lemon mountain tea": 4.99,
     "lemon green tea": 4.99,
     "aiyu jelly lemon tea":	4.99,
@@ -48,41 +48,41 @@ drinks_dict = {
     "red bean black glutinous rice with coconut latte": 6.25,
     "red bean sago latte": 6.25,
     "red bean match frappe with boba": 6.25,
-    "super trio winter melon tea": 5.00,
-    "winter melon tea": 4.25,
-    "winter melon latte": 4.75,
+    "super trio wintermelon tea": 5.00,
+    "wintermelon tea": 4.25,
+    "wintermelon latte": 4.75,
     "grass jelly tea": 4.25,
     "black sesame milk": 6.25,
     "thai tea": 4.25
 }
-ingredient_dict = {
+drink_ingredient_dict = {
     "sun moon lake black tea": ["black tea"],
     "pouchong green tea": ["green tea"],
     "songboling mountain tea": ["mountain tea"],
     "lugu oolong tea": ["oolong tea"],
     "tea w/ original salty cream": ["black/green/oolong tea", "salty cream"],
     "brown sugar pearl latte": ["brown sugar", "boba", "milk"],
-    "brown sugar pearl milk tea": ["brown sugar", "boba", "black tea", "nondairy creamer"],
+    "brown sugar pearl milk tea": ["brown sugar", "boba", "black tea", "non dairy creamer"],
     "brown sugar pearl matcha latte": ["brown sugar", "uji matcha", "milk"],
-    "traditional milk tea": ["black/green/oolong tea", "non-dairy creamer"],
-    "super trio traditional milk tea": ["black/green/oolong tea", "non-dairy creamer", "choose 3 toppings"],
+    "traditional milk tea": ["black/green/oolong tea", "non dairy creamer"],
+    "super trio traditional milk tea": ["black/green/oolong tea", "non dairy creamer", "boba", "grass jelly", "aiyu jelly"],
     "tea latte": ["fresh milk", "black/green/oolong tea"],
     "matcha latte":	["uji matcha", "milk"],
     "peach green milk tea":	["peach chunk", "milk", "green tea"],
     "avocado mango agar cooler": ["blended avocado", "fresh milk", "coconut milk", "mango chunks", "pomelo", "agar boba"],
     "mango pomelo sago cooler":	["fresh mango", "coconut milk", "pomelo", "sago"],
-    "yiFang taiwan fruit tea": ["roasted ripe pineapple", "passionfruit seeds", "freshly squeezed lime juice", "mountain tea", "orange", "apple"],
+    "yiFang taiwan fruit tea": ["roasted ripe pineapple", "passionfruit seeds", "lime juice", "mountain tea", "orange", "apple"],
     "watermelon coconut agar cooler": ["fresh watermelon", "coconut milk", "agar boba"],
-    "kumquat passion gruit tea": ["passionfruit seeds", "green tea", "kumquat", "lime slices"],
+    "kumquat passionfruit tea": ["passionfruit seeds", "green tea", "kumquat", "lime slices"],
     "green plum green tea": ["green plum", "green tea"],
     "peach fruit tea": ["peach", "lime juice", "mountain tea"],
     "peach soda pop": ["peach chunk", "7 up", "lime", "mountain tea"],
     "strawberry fruit tea":	["fresh strawberries", "lime", "green tea"],
     "strawberry milk (blended)": ["blended strawberries", "fresh milk"],
     "yakult fruit tea":	["yakult", "green tea", "passionfruit/pineapple/orange"],
-    "passion fruit green tea": ["passion fruit seeds", "lime juice", "green tea"],
+    "passionfruit green tea": ["passionfruit seeds", "lime juice", "green tea"],
     "pineapple green tea": ["pineapple", "green tea"],
-    "winter melon lemon tea": ["winter melon tea", "lime juice", "lime slices"],
+    "wintermelon lemon tea": ["wintermelon tea", "lime juice", "lime slices"],
     "lemon mountain tea": ["mountain tea", "lime juice", "lime slices"],
     "lemon green tea": ["green tea", "lime juice", "lime slices"],
     "aiyu jelly lemon tea":	["green tea", "aiyu jelly", "lime juice", "lime slices"],
@@ -91,15 +91,71 @@ ingredient_dict = {
     "fresh taro latte":	["taro chunk", "milk"],
     "fresh taro green tea latte": ["taro chunk", "milk", "green tea"],
     "sweet taro sago latte": ["blended taro paste", "milk", "sago"],
-    "red bean black glutinous rice with coconut latte": ["red bean", "black sticky rice", "coconut milk", "fresh milk"],
+    "red bean black glutinous rice with coconut latte": ["red bean", "black glutinous rice", "coconut milk", "fresh milk"],
     "red bean sago latte": ["blended red bean", "milk", "sago"],
     "red bean match frappe with boba": ["blended uji matcha", "milk", "boba", "red bean"],
-    "super trio winter melon tea": ["winter melon tea", "boba", "grass jelly", "sago"],
-    "winter melon tea": ["winter melon tea"],
-    "winter melon latte": ["winter melon", "fresh milk"],
+    "super trio wintermelon tea": ["wintermelon tea", "boba", "grass jelly", "sago"],
+    "wintermelon tea": ["wintermelon tea"],
+    "wintermelon latte": ["wintermelon", "fresh milk"],
     "grass jelly tea": ["grass jelly", "black tea"],
-    "black sesame milk": ["black sesame", "milk", "cheese foam"],
+    "black sesame milk": ["black sesame milk", "cheese foam"],
     "thai tea": ["thai tea"]
+}
+
+ingredient_dict = {
+    "black tea": 1,
+    "green tea": 2,
+    "oolong tea": 3,
+    "mountain tea": 4,
+    "salty cream": 5,
+    "brown sugar": 6,
+    "milk": 7,
+    "non dairy creamer": 8,
+    "uji matcha": 9,
+    "fresh milk": 10,
+    "peach chunk": 11,
+    "blended avocado": 12,
+    "coconut milk": 13,
+    "pomelo": 14,
+    "fresh mango": 15,
+    "roasted ripe pineapple": 16,
+    "passionfruit seeds": 17,
+    "lime juice": 18,
+    "orange": 19,
+    "apple": 20,
+    "fresh watermelon": 21,
+    "kumquat": 22,
+    "lime slices": 23,
+    "green plum": 24,
+    "peach": 25,
+    "7 up": 26,
+    "fresh strawberries": 27,
+    "wintermelon": 28,
+    "yakult": 29,
+    "pineapple": 30,
+    "wintermelon tea": 31,
+    "fresh sugarcane juice": 32,
+    "taro chunk": 33,
+    "blended taro paste": 34,
+    "black sticky rice": 35,
+    "blended red bean": 36,
+    "black sesame milk": 37,
+    "thai tea": 38,
+    "boba": 39,
+    "lychee coconut jelly": 40,
+    "sago": 41,
+    "aiyu jelly": 42,
+    "agar boba": 43,
+    "aloe vera": 44,
+    "cheese foam": 45,
+    "red bean": 46,
+    "black glutinous rice": 47,
+    "grass jelly": 48,
+    "taro mochi": 49,
+    "mango chunks": 50,
+    "lime": 51,
+    "blended uji matcha": 52,
+    "blended strawberries": 53
 }
 
 x = open("drinks_data.csv", "w+")
@@ -142,15 +198,17 @@ with open("yifang_data.csv", "w+") as f:
             x.write(str(drink_id) + ", " + str(order_id) + ", " + drink[0] + ", " + str(drink[1]) + ", " + str(topping) + "\n")
             payment_amount += drink[1] + (topping * 0.75)
             
-            for i in ingredient_dict[drink[0]]:
-                z.write(str(drink_id) + ", " + str(ingredient_id) + ", " + i + "\n")
-                ingredient_id += 1
+            for i in drink_ingredient_dict[drink[0]]:
+                if "black/" in i:
+                    i = "green tea"
+                elif "pineapple/" in i:
+                    i = "pineapple"
+                z.write(str(drink_id) + ", " + str(ingredient_dict[i]) + "\n")
             
             for i in range(topping):
                 temp = random.choice(toppings)
                 y.write(str(topping_id) + ", " + str(drink_id) + ", " + random.choice(toppings) + "\n")
                 topping_id += 1
-            
             
             drink_id += 1
 
@@ -196,9 +254,12 @@ with open("yifang_data.csv", "w+") as f:
             x.write(str(drink_id) + ", " + str(order_id) + ", " + drink[0] + ", " + str(drink[1]) + ", " + str(topping) + "\n")
             payment_amount += drink[1] + (topping * 0.75)
             
-            for i in ingredient_dict[drink[0]]:
-                z.write(str(drink_id) + ", " + str(ingredient_id) + ", " + i + "\n")
-                ingredient_id += 1
+            for i in drink_ingredient_dict[drink[0]]:
+                if "black/" in i:
+                    i = "green tea"
+                elif "pineapple/" in i:
+                    i = "pineapple"
+                z.write(str(drink_id) + ", " + str(ingredient_dict[i]) + "\n")
             
             for i in range(topping):
                 temp = random.choice(toppings)
