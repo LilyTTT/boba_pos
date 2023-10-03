@@ -169,8 +169,9 @@ with open("yifang_data.csv", "w+") as f:
     for i in range(1, 85000):
         staff_id = random.randint(1, 10)  # Random staff_id between 1 and 10
         payment_method = 'Card' if random.random() < 0.7 else 'Cash'  # 70% Card, 30% Cash
-        transaction_date = str(datetime.date(2022, 1, 1) + datetime.timedelta(days = random.randint(0, 365)))
-        
+
+        transaction_date = str(datetime.date(2022, 1, 1) + datetime.timedelta(days = random.randint(0, 365))) + " " + str(random.randint(10, 22)) + ":" + f"{random.randint(0, 59):02d}" + ":" + f"{random.randint(0, 59):02d}"
+
         payment_amount = 0
         
         temp = random.random()
