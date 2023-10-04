@@ -5,4 +5,4 @@ SELECT
     COUNT(*) AS order_count
 FROM orders
 GROUP BY week_start
-ORDER BYweek_start;
+ORDER BY week_start;
