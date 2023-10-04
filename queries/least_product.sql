@@ -1,5 +1,6 @@
 --least selling product
 
+-- this query is to find the drink associated with the least sales
 SELECT
     d.name AS lowest_selling_drink,
     COUNT(*) AS total_orders

@@ -1,5 +1,6 @@
 -- most common topping
 
+-- this query is used to find the topping associated with the most amount of orders
 SELECT
     toppings.name AS topping_name,
     COUNT(*) AS topping_count

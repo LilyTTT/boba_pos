@@ -1,5 +1,7 @@
 -- lowest worker
 
+-- this query returns the staff_id associated with the least amount of orders taken by the employee
+
 SELECT staff.* FROM staff
 JOIN (
 	SELECT staff_id, COUNT(*) AS order_count

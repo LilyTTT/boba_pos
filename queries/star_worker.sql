@@ -1,5 +1,7 @@
 -- star worker
 
+-- this query finds the staff_id associated with the most amount of all orders made
+
 SELECT staff.*
 FROM staff
 JOIN (
