@@ -1,5 +1,6 @@
 --highest selling product
 
+-- made this query to find drink that is associated to the most orders
 SELECT
     d.name AS highest_selling_drink,
     COUNT(*) AS total_orders

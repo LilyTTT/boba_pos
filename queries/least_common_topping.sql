@@ -1,6 +1,6 @@
 -- least common topping
 
-
+-- this query is used to find topping name associated with the least orders
 SELECT
     toppings.name AS topping_name,
     COUNT(*) AS topping_count
