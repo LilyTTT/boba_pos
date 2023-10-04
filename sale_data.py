@@ -5,7 +5,6 @@ import datetime
 order_id = 1
 drink_id = 1
 topping_id = 1
-# ingredient_id = 1
 total = 0
 toppings = ["boba", "lychee coconut jelly", "sago", "aiyu", "agar boba", "aloe vera", "cheese foam", "red bean", "black glutinous rice", "grass jelly", "taro mochi"]
 peak_days = ["2022-08-25", "2022-05-12"]
