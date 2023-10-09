@@ -1,12 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 
-/**
- *
- * @author linhnguyen
- */
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+
 public class Manager extends javax.swing.JPanel {
 
     /**
@@ -29,11 +25,11 @@ public class Manager extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 1200, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 800, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
