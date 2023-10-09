@@ -19,27 +19,46 @@ public class sgcane extends javax.swing.JPanel {
     }
 
     public void load_sgcane(JPanel panel){
-        jButton1 = new javax.swing.JButton();
+       drink1 = new javax.swing.JButton();
+        drink2 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(782, 803));
 
-        jButton1.setText("test");
+        drink1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        drink1.setText("<html> sugarcane mountain tea");
+        drink1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                drink1ActionPerformed(evt);
+            }
+        });
+
+        drink2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        drink2.setText("<html> sugarcane lemon mountain tea");
+        drink2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                drink2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(panel);
         panel.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(103, 103, 103)
-                .addComponent(jButton1)
-                .addContainerGap(225, Short.MAX_VALUE))
+                .addGap(21, 21, 21)
+                .addComponent(drink1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60)
+                .addComponent(drink2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(401, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(jButton1)
-                .addContainerGap(204, Short.MAX_VALUE))
+                .addGap(67, 67, 67)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(drink1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(drink2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(576, Short.MAX_VALUE))
         );
     }
     
@@ -52,32 +71,60 @@ public class sgcane extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        drink1 = new javax.swing.JButton();
+        drink2 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(782, 803));
 
-        jButton1.setText("test");
+        drink1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        drink1.setText("<html> sugarcane mountain tea");
+        drink1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                drink1ActionPerformed(evt);
+            }
+        });
+
+        drink2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        drink2.setText("<html> sugarcane lemon mountain tea");
+        drink2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                drink2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(103, 103, 103)
-                .addComponent(jButton1)
-                .addContainerGap(225, Short.MAX_VALUE))
+                .addGap(21, 21, 21)
+                .addComponent(drink1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60)
+                .addComponent(drink2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(401, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(jButton1)
-                .addContainerGap(204, Short.MAX_VALUE))
+                .addGap(67, 67, 67)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(drink1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(drink2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(576, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void drink1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drink1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_drink1ActionPerformed
+
+    private void drink2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drink2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_drink2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton drink1;
+    private javax.swing.JButton drink2;
     // End of variables declaration//GEN-END:variables
 }
