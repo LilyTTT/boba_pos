@@ -38,8 +38,9 @@ public class Cashier extends javax.swing.JPanel {
         tax_label = new javax.swing.JLabel();
         balance_label = new javax.swing.JLabel();
         total_label = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        order_scroll = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
+        menu_scroll = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
         tea_btn = new javax.swing.JButton();
         bwsg_btn = new javax.swing.JButton();
@@ -89,14 +90,16 @@ public class Cashier extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 548, Short.MAX_VALUE)
+            .addGap(0, 599, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 398, Short.MAX_VALUE)
         );
 
-        jScrollPane1.setViewportView(jPanel1);
+        order_scroll.setViewportView(jPanel1);
+
+        menu_scroll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         tea_btn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tea_btn.setText("Teas");
@@ -204,6 +207,8 @@ public class Cashier extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        menu_scroll.setViewportView(jPanel2);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -222,7 +227,7 @@ public class Cashier extends javax.swing.JPanel {
                         .addGap(56, 56, 56))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1))
+                        .addComponent(order_scroll))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jSeparator3))
@@ -241,8 +246,8 @@ public class Cashier extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(menu_scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 606, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(131, 131, 131))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,7 +261,7 @@ public class Cashier extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(order_scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -277,7 +282,7 @@ public class Cashier extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(menu_scroll)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -321,12 +326,13 @@ public class Cashier extends javax.swing.JPanel {
     private javax.swing.JButton fruits_btn;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JLabel menu_header;
+    private javax.swing.JScrollPane menu_scroll;
     private javax.swing.JButton mktea_btn;
+    private javax.swing.JScrollPane order_scroll;
     private javax.swing.JButton sgcane_btn;
     private javax.swing.JLabel subtotal_lable;
     private javax.swing.JButton tarobean_btn;
