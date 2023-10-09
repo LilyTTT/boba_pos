@@ -35,10 +35,23 @@ public class Redirect extends javax.swing.JPanel {
 
         server_view = new javax.swing.JButton();
         manager_view = new javax.swing.JButton();
+        home = new javax.swing.JButton();
 
         server_view.setText("Server View");
 
         manager_view.setText("Manager View");
+        manager_view.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                manager_viewActionPerformed(evt);
+            }
+        });
+
+        home.setText("Home");
+        home.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -50,6 +63,10 @@ public class Redirect extends javax.swing.JPanel {
                 .addGap(97, 97, 97)
                 .addComponent(manager_view)
                 .addContainerGap(446, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(home)
+                .addGap(564, 564, 564))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -58,12 +75,23 @@ public class Redirect extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(server_view)
                     .addComponent(manager_view))
-                .addContainerGap(432, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 403, Short.MAX_VALUE)
+                .addComponent(home)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeActionPerformed
+        fh.actionPerformed(evt);
+    }//GEN-LAST:event_homeActionPerformed
+
+    private void manager_viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manager_viewActionPerformed
+        fh.actionPerformed(evt);
+    }//GEN-LAST:event_manager_viewActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton home;
     private javax.swing.JButton manager_view;
     private javax.swing.JButton server_view;
     // End of variables declaration//GEN-END:variables

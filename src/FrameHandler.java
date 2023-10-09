@@ -15,7 +15,7 @@ public class FrameHandler implements ActionListener {
     public JFrame frame;
     public Login login;
     public Redirect redirect;
-//    public Manager manager;
+    public Manager manager;
 //    public Server server;
     public int staff_id;
 
@@ -38,15 +38,15 @@ public class FrameHandler implements ActionListener {
             staff_id = login.staff_id;
             frame.setContentPane(redirect);
         }
-//        else if (action == "Manager View") {
-//            frame.setContentPane(manager);
-//        }
+        else if (action == "Manager View") {
+            frame.setContentPane(manager);
+        }
 //        else if (action == "Server View") {
 //            frame.setContentPane(server);
 //        }
-//        else if (action == "Home") {
-//            frame.setContentPane(login);
-//        }
+        else if (action == "Home") {
+            frame.setContentPane(login);
+        }
 
         frame.repaint();
         frame.revalidate();
