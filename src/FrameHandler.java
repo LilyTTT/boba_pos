@@ -43,6 +43,5 @@ public class FrameHandler implements ActionListener {
 
         frame.repaint();
         frame.revalidate();
-
     }
 }

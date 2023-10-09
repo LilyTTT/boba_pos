@@ -18,7 +18,7 @@ public class GUI {
         
         FrameHandler frame_handler = new FrameHandler();
         
-        JFrame frame = new JFrame("MainFrame");
+        JFrame frame = new JFrame("POS");
         frame_handler.frame = frame;
         frame.setSize(new Dimension(1200, 800));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

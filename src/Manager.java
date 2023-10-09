@@ -14,19 +14,19 @@ public class Manager extends javax.swing.JPanel {
         this.fh = fh;
 
 //        OrderHistory orderHistory = new OrderHistory();
-        Inventory inventory = new Inventory();
+        Inventory inventory = new Inventory(fh);
 //        Menu menu = new Menu();
 //        Reports reports = new Reports();
 
-//        JTabbedPane tabbed_pane = new JTabbedPane();
+        JTabbedPane tabbed_pane = new JTabbedPane();
 
-//        tabbed_pane.addTab("Inventory", inventory.getContentPane());
+        tabbed_pane.addTab("Inventory", inventory.getContentPane());
 //        tabbed_pane.addTab("Order History", orderHistory.getContentPane());
 //        tabbed_pane.addTab("Menu", menu.getContentPane());
 //        tabbed_pane.addTab("Reports", reports.getContentPane());
 
 
-//        this.add(tabbed_pane);
+        this.add(tabbed_pane);
 //        frame.setVisible(true);
         try {
             load_manager();
@@ -49,51 +49,19 @@ public class Manager extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jProgressBar1 = new javax.swing.JProgressBar();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-
-        jProgressBar1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        jProgressBar1.setToolTipText("10/100");
-        jProgressBar1.setValue(10);
-
-        jLabel1.setText("Total Profit");
-
-        jLabel2.setText("10/100");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(275, 275, 275)
-                            .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(342, 342, 342)
-                            .addComponent(jLabel1))))
-                .addContainerGap(727, Short.MAX_VALUE))
+            .addGap(0, 1200, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(190, 190, 190)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addContainerGap(486, Short.MAX_VALUE))
+            .addGap(0, 800, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JProgressBar jProgressBar1;
     // End of variables declaration//GEN-END:variables
 }
