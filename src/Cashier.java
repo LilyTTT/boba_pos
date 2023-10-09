@@ -22,7 +22,14 @@ public class Cashier extends javax.swing.JPanel {
     private void load_cashier() {
         initComponents();
     }
-
+    
+    public Connection connect(){
+        jdbcpostgreSQL connection = new jdbcpostgreSQL();
+        Connection conn = connection.connect();
+        
+        return conn;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -299,11 +306,17 @@ public class Cashier extends javax.swing.JPanel {
     }//GEN-LAST:event_tarobean_btnActionPerformed
 
     private void sgcane_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sgcane_btnActionPerformed
-        // TODO add your handling code here:
+        jPanel2.removeAll();
+        jPanel2.repaint();
+        sgcane temp = new sgcane();
+        temp.load_sgcane(jPanel2);
     }//GEN-LAST:event_sgcane_btnActionPerformed
 
     private void tea_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tea_btnActionPerformed
-        // TODO add your handling code here:
+        jPanel2.removeAll();
+        jPanel2.repaint();
+        Tea temp = new Tea();
+        temp.load_tea(jPanel2);
     }//GEN-LAST:event_tea_btnActionPerformed
 
     private void bwsg_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bwsg_btnActionPerformed
