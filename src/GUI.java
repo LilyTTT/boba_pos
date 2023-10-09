@@ -20,13 +20,12 @@ public class GUI {
         
         JFrame frame = new JFrame("MainFrame");
         frame_handler.frame = frame;
-        frame.setSize(new Dimension(500, 500));
+        frame.setSize(new Dimension(1200, 800));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLocation(new Point(500, 300));
 
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        frame.setSize(screenSize.width, screenSize.height);
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+//        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+//        frame.setSize(screenSize.width, screenSize.height);
+//        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
 //        Image icon = Toolkit.getDefaultToolkit().getImage("../misc/smoothie_king.jpg");
 //        frame.setIconImage(icon);

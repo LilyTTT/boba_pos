@@ -45,20 +45,20 @@ public class Redirect extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(75, 75, 75)
+                .addGap(446, 446, 446)
                 .addComponent(server_view)
-                .addGap(68, 68, 68)
+                .addGap(97, 97, 97)
                 .addComponent(manager_view)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(446, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(124, 124, 124)
+                .addGap(345, 345, 345)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(server_view)
                     .addComponent(manager_view))
-                .addContainerGap(153, Short.MAX_VALUE))
+                .addContainerGap(432, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
