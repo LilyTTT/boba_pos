@@ -1,13 +1,10 @@
 
-import java.sql.*;
-import java.util.*;
 import javax.swing.*;
 
 public class Redirect extends javax.swing.JPanel {
 
     private JFrame frame;
     private FrameHandler fh;
-    private static JPanel panel;
     
     Redirect(JFrame frame, FrameHandler fh) {
         this.frame = frame;
@@ -20,7 +17,7 @@ public class Redirect extends javax.swing.JPanel {
         }
     }
     
-    public void load_redirect() {
+    private void load_redirect() {
         initComponents();
     }
 

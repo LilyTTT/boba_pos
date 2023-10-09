@@ -7,7 +7,6 @@ public class Login extends javax.swing.JPanel {
 
     private JFrame frame;
     private FrameHandler fh;
-    private static JPanel panel;
     private static List<Integer> id_list = new ArrayList<>();
     private static List<String> role_list = new ArrayList<>();
     public int staff_id;
@@ -70,7 +69,7 @@ public class Login extends javax.swing.JPanel {
         }
     }
     
-    public void load_login() {
+    private void load_login() {
         initComponents();
         status.setText("Connected to database.");
     }

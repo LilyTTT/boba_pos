@@ -1,15 +1,7 @@
+
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
-import java.sql.*;
-import java.lang.Math.*;
-import java.util.*;
 
-
-/**
- * Handles actions for the GUI which switch between frames that are entirely separated from each other. For instance, from the login frame
- * to the RedirectScreen.
- */
 public class FrameHandler implements ActionListener {
 
     public JFrame frame;
@@ -31,20 +23,20 @@ public class FrameHandler implements ActionListener {
     * @param e The ActionEvent object that triggered the listener.
     */
     
+    @Override
     public void actionPerformed(ActionEvent e) {
         String action = e.getActionCommand();
-        System.out.println(action);
-        if (action == "Login" && login.is_manager()) {
+        if ("Login".equals(action) && login.is_manager()) {
             staff_id = login.staff_id;
             frame.setContentPane(redirect);
         }
-        else if (action == "Manager View") {
+        else if ("Manager View".equals(action)) {
             frame.setContentPane(manager);
         }
 //        else if (action == "Server View") {
 //            frame.setContentPane(server);
 //        }
-        else if (action == "Home") {
+        else if ("Home".equals(action)) {
             frame.setContentPane(login);
         }
 
