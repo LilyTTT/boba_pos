@@ -36,6 +36,7 @@ public class Login extends javax.swing.JPanel {
         }
         else {
             JOptionPane.showMessageDialog(frame, "Staff ID not found");
+            return null;
         }
         return false;
     }

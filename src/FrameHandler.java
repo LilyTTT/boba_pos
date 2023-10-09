@@ -8,7 +8,7 @@ public class FrameHandler implements ActionListener {
     public Login login;
     public Redirect redirect;
     public Manager manager;
-//    public Server server;
+    public Cashier cashier;
     public int staff_id;
 
     /**
@@ -26,16 +26,17 @@ public class FrameHandler implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         String action = e.getActionCommand();
-        if ("Login".equals(action) && login.is_manager()) {
-            staff_id = login.staff_id;
+        staff_id = login.staff_id;
+        Boolean temp = false;
+        if ("Login".equals(action) && (temp = login.is_manager())) {
             frame.setContentPane(redirect);
         }
         else if ("Manager View".equals(action)) {
             frame.setContentPane(manager);
         }
-//        else if (action == "Server View") {
-//            frame.setContentPane(server);
-//        }
+        else if ("Cashier View".equals(action) || ("Login".equals(action) && !temp)) {
+            frame.setContentPane(cashier);
+        }
         else if ("Home".equals(action)) {
             frame.setContentPane(login);
         }

@@ -30,11 +30,16 @@ public class Redirect extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        server_view = new javax.swing.JButton();
+        cashier_view = new javax.swing.JButton();
         manager_view = new javax.swing.JButton();
         home = new javax.swing.JButton();
 
-        server_view.setText("Server View");
+        cashier_view.setText("Cashier View");
+        cashier_view.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cashier_viewActionPerformed(evt);
+            }
+        });
 
         manager_view.setText("Manager View");
         manager_view.addActionListener(new java.awt.event.ActionListener() {
@@ -56,10 +61,10 @@ public class Redirect extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(446, 446, 446)
-                .addComponent(server_view)
+                .addComponent(cashier_view)
                 .addGap(97, 97, 97)
                 .addComponent(manager_view)
-                .addContainerGap(446, Short.MAX_VALUE))
+                .addContainerGap(439, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(home)
@@ -70,7 +75,7 @@ public class Redirect extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(345, 345, 345)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(server_view)
+                    .addComponent(cashier_view)
                     .addComponent(manager_view))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 403, Short.MAX_VALUE)
                 .addComponent(home)
@@ -86,10 +91,14 @@ public class Redirect extends javax.swing.JPanel {
         fh.actionPerformed(evt);
     }//GEN-LAST:event_manager_viewActionPerformed
 
+    private void cashier_viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashier_viewActionPerformed
+        fh.actionPerformed(evt);
+    }//GEN-LAST:event_cashier_viewActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cashier_view;
     private javax.swing.JButton home;
     private javax.swing.JButton manager_view;
-    private javax.swing.JButton server_view;
     // End of variables declaration//GEN-END:variables
 }
