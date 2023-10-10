@@ -21,11 +21,12 @@ public class Manager extends javax.swing.JPanel {
 
     private void load_manager() {
         initComponents();
-        jPanel1.removeAll();
-        jPanel1.repaint();
         Ingredient ingredient = new Ingredient();
         ingredient.load_table();
         ingredient.load_ingredients(jPanel1);
+        OrderHistory order_history = new OrderHistory();
+        order_history.load_table();
+        order_history.load_order_history(jPanel2);
     }
     
     /**
@@ -41,8 +42,6 @@ public class Manager extends javax.swing.JPanel {
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
 
         back.setText("Back");
         back.addActionListener(new java.awt.event.ActionListener() {
@@ -62,37 +61,20 @@ public class Manager extends javax.swing.JPanel {
             .addGap(0, 730, Short.MAX_VALUE)
         );
 
-        jTabbedPane2.addTab("tab1", jPanel1);
-
-        jLabel5.setText("jLabel5");
-
-        jButton3.setText("jButton3");
+        jTabbedPane2.addTab("Inventory", jPanel1);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(591, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(550, 550, 550))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton3)
-                        .addGap(531, 531, 531))))
+            .addGap(0, 1200, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(94, 94, 94)
-                .addComponent(jLabel5)
-                .addGap(69, 69, 69)
-                .addComponent(jButton3)
-                .addContainerGap(527, Short.MAX_VALUE))
+            .addGap(0, 730, Short.MAX_VALUE)
         );
 
-        jTabbedPane2.addTab("tab2", jPanel2);
+        jTabbedPane2.addTab("Order History", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -112,6 +94,8 @@ public class Manager extends javax.swing.JPanel {
                 .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+
+        jTabbedPane2.getAccessibleContext().setAccessibleName("Inventory");
     }// </editor-fold>//GEN-END:initComponents
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
@@ -121,8 +105,6 @@ public class Manager extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton back;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTabbedPane jTabbedPane2;

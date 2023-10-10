@@ -5,15 +5,16 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 
-public class Ingredient extends javax.swing.JPanel {
+public class OrderHistory extends javax.swing.JPanel {
+
+    private static final java.util.List<String> order_id_list = new ArrayList<>();
+    private static final java.util.List<String> staff_id_list = new ArrayList<>();
+    private static final java.util.List<String> transaction_date_list = new ArrayList<>();
+    private static final java.util.List<String> payment_method_list = new ArrayList<>();
+    private static final java.util.List<String> payment_amount_list = new ArrayList<>();
+    private static final java.util.List<String> timestamp_list = new ArrayList<>();
     
-    private static final java.util.List<String> id_list = new ArrayList<>();
-    private static final java.util.List<String> ingredients_list = new ArrayList<>();
-    private static final java.util.List<String> stock_list = new ArrayList<>();
-    private static final java.util.List<String> restock_list = new ArrayList<>();
-    private static final java.util.List<String> supplier_list = new ArrayList<>();
-    
-    public Ingredient() {
+    public OrderHistory() {
         initComponents();
     }
     
@@ -23,16 +24,17 @@ public class Ingredient extends javax.swing.JPanel {
         
         try {
             Statement stmt = conn.createStatement();
-            String sqlStatement = "SELECT * FROM ingredients";
+            String sqlStatement = "SELECT * FROM orders";
 
             ResultSet result = stmt.executeQuery(sqlStatement);
             
             while(result.next()) {
-                id_list.add(result.getString("ingredient_id"));
-                ingredients_list.add(result.getString("name"));
-                stock_list.add(result.getString("stock_level"));
-                restock_list.add(result.getString("restock_date"));
-                supplier_list.add(result.getString("supplier"));
+                order_id_list.add(result.getString("order_id"));
+                staff_id_list.add(result.getString("staff_id"));
+                transaction_date_list.add(result.getString("transaction_date"));
+                payment_method_list.add(result.getString("payment_method"));
+                payment_amount_list.add(result.getString("payment_amount"));
+                timestamp_list.add(result.getString("timestamp"));
             }
         }
         catch (Exception e) {
@@ -48,28 +50,23 @@ public class Ingredient extends javax.swing.JPanel {
         }
     }
     
-    public void load_ingredients(JPanel panel) {
-        java.awt.GridBagConstraints gridBagConstraints;
-        
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        
-        setLayout(new java.awt.GridBagLayout());
-
-        Object [][] data = new Object[id_list.size()][5];
-        for (int i = 0; i < id_list.size(); i++) {
-            Object[] row = { id_list.get(i), ingredients_list.get(i), stock_list.get(i), restock_list.get(i), supplier_list.get(i)};
+    public void load_order_history(JPanel panel) {
+        Object [][] data = new Object[order_id_list.size()][5];
+        for (int i = 0; i < order_id_list.size(); i++) {
+            Object[] row = { order_id_list.get(i), staff_id_list.get(i), transaction_date_list.get(i), payment_method_list.get(i), payment_amount_list.get(i), timestamp_list.get(i)};
             data[i] = row;
         }
-        
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             data,
             new String [] {
-                "Ingredient ID", "Name", "Stock Level", "Restock Date", "Supplier"
+                "Order ID", "Staff ID", "Transaction Date", "Payment Method", "Payment Amount", "Timestamp"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -108,40 +105,38 @@ public class Ingredient extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
-        jTable1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Ingredient ID", "Name", "Stock Level", "Restock Date", "Supplier"
+                "Order ID", "Staff ID", "Transaction Date", "Payment Method", "Payment Amount", "Timestamp"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jTable1.setShowGrid(true);
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(100, 100, 100)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(100, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addGap(100, 100, 100))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(20, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
