@@ -40,9 +40,11 @@ public class FrameHandler implements ActionListener {
         else if ("Home".equals(action)) {
             frame.setContentPane(login);
         }
+        else if ("Back".equals(action)) {
+            frame.setContentPane(redirect);
+        }
 
         frame.repaint();
         frame.revalidate();
-
     }
 }

@@ -1,19 +1,7 @@
 import javax.swing.JPanel;
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 
-
-/**
- *
- * @author ltang
- */
 public class sgcane extends javax.swing.JPanel {
 
-    /**
-     * Creates new form sgcane
-     */
     public sgcane() {
         initComponents();
     }
