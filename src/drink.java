@@ -562,8 +562,11 @@ public class drink extends javax.swing.JPanel {
         
         
         this.price += this.num_toppings * 0.75;
+       
+        for(int i = 0; i < this.qty; ++i){
+            this.worker.drinks.add(this);
+        }
         
-        this.worker.drinks.add(this);
         this.worker.load_order();
         
         this.panel.removeAll();
