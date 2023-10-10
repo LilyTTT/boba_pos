@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 public class sgcane extends javax.swing.JPanel {
 
-    private int drink_id = 0;
+    private int base_drink_id = 0;
     private String name = "";
     private float price;
     private List<String> ingredients = new ArrayList<>();
@@ -157,7 +157,7 @@ public class sgcane extends javax.swing.JPanel {
     private void find_drink(String name){
         try{
             String line;
-            BufferedReader br = new BufferedReader(new FileReader("./src/base_drinks.csv"));  
+            BufferedReader br = new BufferedReader(new FileReader("./src/misc/base_drinks.csv"));  
             String[] this_drink = null;
             while ((line = br.readLine()) != null){  
                 this_drink = line.split(","); 
@@ -166,13 +166,13 @@ public class sgcane extends javax.swing.JPanel {
                 }
             }
             
-            this.drink_id = Integer.parseInt(this_drink[0]);
+            this.base_drink_id = Integer.parseInt(this_drink[0]);
             this.price = Float.parseFloat(this_drink[2]);
             for(int i = 3; i < this_drink.length; ++i ){
                 this.ingredients.add(this_drink[i]);
             }
             drink temp = new drink();
-            temp.load_drink(this.panel, this.worker, this.name, this.drink_id, this.price, this.ingredients);
+            temp.load_drink(this.panel, this.worker, this.name, this.base_drink_id, this.price, this.ingredients);
             for(int i = 0; i < temp.qty; ++i){
                 this.worker.drinks.add(temp);
             }

@@ -19,11 +19,12 @@ import java.util.Scanner;
 public class drink extends javax.swing.JPanel {
     public Cashier worker;
     public String name;
-    public int drink_id;
+    public int base_id;
     public List<String> used_ingredients = new ArrayList<>();
     public float price;
     public int num_toppings = 0;
     public int qty = 0;
+    public int drink_id = 0;
     private JPanel panel;
     /**
      * Creates new form drink
@@ -42,7 +43,7 @@ public class drink extends javax.swing.JPanel {
     public void load_drink(JPanel panel, Cashier worker,  String name, int drink_id, float price, List<String> ingredients){
         this.worker = worker;
         this.name = name;
-        this.drink_id = drink_id;
+        this.base_id = drink_id;
         this.used_ingredients = ingredients;
         this.price = price;
         this.panel = panel;
@@ -494,6 +495,7 @@ public class drink extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void save_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_btnActionPerformed
+        // Add any toppings
         int agar_boba_ct = (Integer)this.agar_boba.getValue();
         int boba_ct = (Integer)this.boba.getValue();
         int aiyu_ct = (Integer)this.aiyu.getValue();
@@ -506,6 +508,7 @@ public class drink extends javax.swing.JPanel {
         int sago_ct = (Integer)this.sago.getValue();
         int taro_mochi_ct = (Integer)this.taro_mochi.getValue();
         
+        // update used_ingredients
         for(int i = 0; i <agar_boba_ct; i++){
             used_ingredients.add("agar boba");
         }
@@ -550,6 +553,7 @@ public class drink extends javax.swing.JPanel {
             used_ingredients.add("taro mochi");
         }
         
+        //update num_toppings
         this.num_toppings += agar_boba_ct;
         this.num_toppings += boba_ct;
         this.num_toppings += aiyu_ct;
@@ -564,34 +568,54 @@ public class drink extends javax.swing.JPanel {
         
         this.qty = (Integer)drink_qty.getValue();
         
-        
         this.price += this.num_toppings * 0.75;
-       
+        
+        //add this drink to the drinks in checkout
         this.worker.drinks.add(this);
         
-        
+        //display the drink in checkout
         this.worker.load_order();
         
         this.panel.removeAll();
         this.panel.repaint();
         
-        if(this.drink_id < 6){
+        Connection conn = this.connect();
+        String drink_str = "";
+        
+        try {
+            Statement stmt = conn.createStatement();
+            String sqlStatement = "SELECT * FROM drinks";
+
+            ResultSet result = stmt.executeQuery(sqlStatement);
+            
+            while(result.next()) {
+                drink_str = (result.getString("drink_id"));
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            System.err.println(e.getClass().getName()+": "+e.getMessage());
+        }
+        
+        this.drink_id = Integer.parseInt(drink_str) + 1;
+        
+        if(this.base_id < 6){
             //call tea again
         }
-        else if(this.drink_id < 9){
+        else if(this.base_id < 9){
             //call brown sugar again
         }
-        else if(this.drink_id < 14){
+        else if(this.base_id < 14){
             //call milk tea
         }
-        else if(this.drink_id < 31){
+        else if(this.base_id < 31){
             //call fruits
         }
-        else if(this.drink_id < 33){
+        else if(this.base_id < 33){
             sgcane temp = new sgcane();
             temp.load_sgcane(this.panel, this.worker);
         }
-        else if(this.drink_id < 39){
+        else if(this.base_id < 39){
             tarobean temp = new tarobean();
             temp.load_tarobean(this.panel, this.worker);
         }
@@ -609,24 +633,25 @@ public class drink extends javax.swing.JPanel {
         this.panel.removeAll();
         this.panel.repaint();
         
-        if(this.drink_id < 6){
+        if(this.base_id < 6){
             //call tea again
         }
-        else if(this.drink_id < 9){
+        else if(this.base_id < 9){
             //call brown sugar again
         }
-        else if(this.drink_id < 14){
+        else if(this.base_id < 14){
             //call milk tea
         }
-        else if(this.drink_id < 31){
+        else if(this.base_id < 31){
             //call fruits
         }
-        else if(this.drink_id < 33){
+        else if(this.base_id < 33){
             sgcane temp = new sgcane();
             temp.load_sgcane(this.panel, this.worker);
         }
-        else if(this.drink_id < 39){
-            //call matchbean
+        else if(this.base_id < 39){
+            tarobean temp = new tarobean();
+            temp.load_tarobean(this.panel, this.worker);
         }
         else{
             //call traditional

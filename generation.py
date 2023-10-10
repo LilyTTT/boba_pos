@@ -102,4 +102,71 @@ with open("base_drinks.csv", "w") as my_file:
         my_file.write(str(drink_id) + "," + str(drinks[drink_id-1]) + "," + str(drinks_dict[drinks[drink_id-1]]) +","+ ing_Str + '\n')
         
         drink_id += 1
+        
+ingredient_dict = {
+    "black tea": 1,
+    "green tea": 2,
+    "oolong tea": 3,
+    "mountain tea": 4,
+    "salty cream": 5,
+    "brown sugar": 6,
+    "milk": 7,
+    "non dairy creamer": 8,
+    "uji matcha": 9,
+    "fresh milk": 10,
+    "peach chunk": 11,
+    "blended avocado": 12,
+    "coconut milk": 13,
+    "pomelo": 14,
+    "fresh mango": 15,
+    "roasted ripe pineapple": 16,
+    "passionfruit seeds": 17,
+    "lime juice": 18,
+    "orange": 19,
+    "apple": 20,
+    "fresh watermelon": 21,
+    "kumquat": 22,
+    "lime slices": 23,
+    "green plum": 24,
+    "peach": 25,
+    "7 up": 26,
+    "fresh strawberries": 27,
+    "wintermelon": 28,
+    "yakult": 29,
+    "pineapple": 30,
+    "wintermelon tea": 31,
+    "fresh sugarcane juice": 32,
+    "taro chunk": 33,
+    "blended taro paste": 34,
+    "black sticky rice": 35,
+    "blended red bean": 36,
+    "black sesame milk": 37,
+    "thai tea": 38,
+    "boba": 39,
+    "lychee coconut jelly": 40,
+    "sago": 41,
+    "aiyu jelly": 42,
+    "agar boba": 43,
+    "aloe vera": 44,
+    "cheese foam": 45,
+    "red bean": 46,
+    "black glutinous rice": 47,
+    "grass jelly": 48,
+    "taro mochi": 49,
+    "mango chunks": 50,
+    "lime": 51,
+    "blended uji matcha": 52,
+    "blended strawberries": 53,
+    "cups": 54,
+    "straws": 55,
+    "lids": 56,
+}
+
+with open("base_ingredients.csv", 'w') as myFile:
+    ingredients = list(ingredient_dict.keys())
+    ing_id = 1
+    
+    for i in range(56):
+        myFile.write(str(ing_id) + "," + ingredients[ing_id-1] + '\n')
+        ing_id += 1
      

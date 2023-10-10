@@ -5,12 +5,12 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 public class Cashier extends javax.swing.JPanel {
-
+    
+    private int order_id;
+    private int drink_id;
     private JFrame frame;
     private FrameHandler fh;
     List<drink> drinks = new ArrayList<>();
-    private float discount = 0;
-    private float tips = 0;
     
     Cashier(JFrame frame, FrameHandler fh) {
         this.frame = frame;
@@ -214,6 +214,11 @@ public class Cashier extends javax.swing.JPanel {
         menu_header.setText("Home");
 
         pay_btn.setText("Pay Now");
+        pay_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pay_btnActionPerformed(evt);
+            }
+        });
 
         discount_tips_btn.setText("begone");
         discount_tips_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -322,6 +327,59 @@ public class Cashier extends javax.swing.JPanel {
     private void discount_tips_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discount_tips_btnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_discount_tips_btnActionPerformed
+
+    private void pay_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pay_btnActionPerformed
+        // get order ID for this order
+        Connection conn = this.connect();
+        String order_str = "";
+        
+        try {
+            Statement stmt = conn.createStatement();
+            String sqlStatement = "SELECT * FROM orders";
+
+            ResultSet result = stmt.executeQuery(sqlStatement);
+            
+            while(result.next()) {
+                order_str = (result.getString("order_id"));
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            System.err.println(e.getClass().getName()+": "+e.getMessage());
+        }
+        
+        this.order_id = Integer.parseInt(order_str) + 1;
+        
+        
+        for(int i = 0; i < this.drinks.size(); ++i){
+            drink curr = this.drinks.get(i);
+            int drink_id = curr.drink_id;
+            String name = curr.name;
+            int num_toppings = curr.num_toppings;
+            float base_price = (float) (curr.price - curr.num_toppings * 0.75);
+            
+            for(int k = 0; k < curr.used_ingredients.size(); ++k){
+                //TODO WRITE TO INGREDIENTS IN DATABASE
+                
+                //TODO DEDUCT AMOUNT IN INVENTORY
+            }
+            
+            //topping_id, drink_id, name <- last [num_toppings] of used_ingre
+            for(int x = 0; x < num_toppings; ++x){
+                //TODO WRITE TO TOPPINGS
+            }
+            
+            // drink: drink_id, order_id, name, base_price, # toppings
+            for(int j = 0; j < curr.qty; ++j){
+                //TODO WRITE TO DRINKS IN DATABASE 
+            }
+            
+            // drink_id, ingredients_id
+  
+        }
+        
+        //orders: order_id, employee_id, data, payment, amount, time
+    }//GEN-LAST:event_pay_btnActionPerformed
     
     public void load_order(){
         System.out.println("order test");
