@@ -1,6 +1,5 @@
+
 package manager_panels;
-
-
 import control.jdbcpostgreSQL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -11,16 +10,15 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
-public class Ingredient extends javax.swing.JPanel {
+public class Menu extends javax.swing.JPanel {
     
-    private static final java.util.List<String> id_list = new ArrayList<>();
+    private static final java.util.List<String> drink_id_list = new ArrayList<>();
+    private static final java.util.List<String> name_list = new ArrayList<>();
+    private static final java.util.List<String> price_list = new ArrayList<>();
     private static final java.util.List<String> ingredients_list = new ArrayList<>();
-    private static final java.util.List<String> stock_list = new ArrayList<>();
-    private static final java.util.List<String> restock_list = new ArrayList<>();
-    private static final java.util.List<String> supplier_list = new ArrayList<>();
     private JPanel panel;
-    
-    public Ingredient() {
+
+    public Menu() {
         initComponents();
     }
     
@@ -30,16 +28,15 @@ public class Ingredient extends javax.swing.JPanel {
         
         try {
             Statement stmt = conn.createStatement();
-            String sqlStatement = "SELECT * FROM ingredients";
+            String sqlStatement = "SELECT * FROM base_drinks";
 
             ResultSet result = stmt.executeQuery(sqlStatement);
             
             while(result.next()) {
-                id_list.add(result.getString("ingredient_id"));
-                ingredients_list.add(result.getString("name").substring(1));
-                stock_list.add(result.getString("stock_level"));
-                restock_list.add(result.getString("restock_date").substring(1));
-                supplier_list.add(result.getString("supplier").substring(1));
+                drink_id_list.add(result.getString("base_id"));
+                name_list.add(result.getString("name"));
+                price_list.add(result.getString("price"));
+                ingredients_list.add(result.getString("list_ingredients"));
             }
         }
         catch (Exception e) {
@@ -55,29 +52,24 @@ public class Ingredient extends javax.swing.JPanel {
         }
     }
     
-    public void load_ingredients(JPanel panel) {
+    public void load_drinks(JPanel panel) {
         this.panel = panel;
-        java.awt.GridBagConstraints gridBagConstraints;
-        
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        
-        setLayout(new java.awt.GridBagLayout());
-
-        Object [][] data = new Object[id_list.size()][5];
-        for (int i = 0; i < id_list.size(); i++) {
-            Object[] row = { id_list.get(i), ingredients_list.get(i), stock_list.get(i), restock_list.get(i), supplier_list.get(i)};
+        Object [][] data = new Object[drink_id_list.size()][4];
+        for (int i = 0; i < drink_id_list.size(); i++) {
+            Object[] row = { drink_id_list.get(i), name_list.get(i), price_list.get(i), ingredients_list.get(i)};
             data[i] = row;
         }
-        
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             data,
             new String [] {
-                "Ingredient ID", "Name", "Stock Level", "Restock Date", "Supplier"
+                "Drink ID", "Name", "Stock Level", "Ingredients List"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -91,25 +83,25 @@ public class Ingredient extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1140, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(add_ingredient)
-                        .addGap(15, 15, 15)
-                        .addComponent(remove_ingredient)))
+                        .addComponent(add_drinks)
+                        .addGap(18, 18, 18)
+                        .addComponent(remove_drinks))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1140, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 633, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(add_ingredient)
-                    .addComponent(remove_ingredient))
-                .addContainerGap(15, 15))
+                    .addComponent(add_drinks)
+                    .addComponent(remove_drinks))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
     }
 
@@ -124,40 +116,38 @@ public class Ingredient extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        add_ingredient = new javax.swing.JButton();
-        remove_ingredient = new javax.swing.JButton();
+        add_drinks = new javax.swing.JButton();
+        remove_drinks = new javax.swing.JButton();
 
-        jTable1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Ingredient ID", "Name", "Stock Level", "Restock Date", "Supplier"
+                "Drink ID", "Name", "Stock Level", "Ingredients List"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jTable1.setShowGrid(true);
         jScrollPane1.setViewportView(jTable1);
 
-        add_ingredient.setText("Add");
-        add_ingredient.addActionListener(new java.awt.event.ActionListener() {
+        add_drinks.setText("Add");
+        add_drinks.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                add_ingredientActionPerformed(evt);
+                add_drinksActionPerformed(evt);
             }
         });
 
-        remove_ingredient.setText("Remove");
-        remove_ingredient.addActionListener(new java.awt.event.ActionListener() {
+        remove_drinks.setText("Remove");
+        remove_drinks.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                remove_ingredientActionPerformed(evt);
+                remove_drinksActionPerformed(evt);
             }
         });
 
@@ -166,29 +156,29 @@ public class Ingredient extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1140, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(add_ingredient)
+                        .addComponent(add_drinks)
                         .addGap(18, 18, 18)
-                        .addComponent(remove_ingredient)))
+                        .addComponent(remove_drinks))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1140, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 633, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(add_ingredient)
-                    .addComponent(remove_ingredient))
-                .addContainerGap(12, Short.MAX_VALUE))
+                    .addComponent(add_drinks)
+                    .addComponent(remove_drinks))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void add_ingredientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_ingredientActionPerformed
+    private void add_drinksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_drinksActionPerformed
         String input = JOptionPane.showInputDialog(this, "test");
         String[] split_input = input.split(", ");
         
@@ -197,7 +187,7 @@ public class Ingredient extends javax.swing.JPanel {
         
         try {
             Statement stmt = conn.createStatement();
-            String sqlStatement = "INSERT INTO ingredients (ingredient_id, name, stock_level, restock_date, supplier) VALUES (" + split_input[0] + ", '" + split_input[1] + "', " + split_input[2] + ", '" + split_input[3] + "', '" + split_input[4] + "')";
+            String sqlStatement = "INSERT INTO base_drinks (base_id, name, price, list_ingredients) VALUES (" + split_input[0] + ", '" + split_input[1] + "', " + split_input[2] + ", '{'" + split_input[3] + "'}')";
             stmt.executeQuery(sqlStatement);
         }
         catch (SQLException e) {
@@ -220,10 +210,10 @@ public class Ingredient extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
         load_table();
-        load_ingredients(panel);
-    }//GEN-LAST:event_add_ingredientActionPerformed
+        load_drinks(panel);
+    }//GEN-LAST:event_add_drinksActionPerformed
 
-    private void remove_ingredientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remove_ingredientActionPerformed
+    private void remove_drinksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remove_drinksActionPerformed
         String input = JOptionPane.showInputDialog(this, "test");
         
         jdbcpostgreSQL connection = new jdbcpostgreSQL();
@@ -231,11 +221,11 @@ public class Ingredient extends javax.swing.JPanel {
         
         try {
             Statement stmt = conn.createStatement();
-            String sqlStatement = "DELETE FROM ingredients WHERE ingredient_id = " + input;
+            String sqlStatement = "DELETE FROM base_drinks WHERE base_id = " + input;
             stmt.executeQuery(sqlStatement);
         }
         catch (SQLException e) {
-            if (!id_list.contains(input)) {
+            if (!drink_id_list.contains(input)) {
                 JOptionPane.showMessageDialog(this, "Ingredient ID does not exist.");
             }
             e.printStackTrace();
@@ -245,7 +235,7 @@ public class Ingredient extends javax.swing.JPanel {
         try {
             conn.close();
         } 
-        catch(Exception e) {
+        catch(SQLException e) {
             System.out.println("Connection NOT Closed.");
         }
         
@@ -254,14 +244,14 @@ public class Ingredient extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
         load_table();
-        load_ingredients(panel);
-    }//GEN-LAST:event_remove_ingredientActionPerformed
+        load_drinks(panel);
+    }//GEN-LAST:event_remove_drinksActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton add_ingredient;
+    private javax.swing.JButton add_drinks;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JButton remove_ingredient;
+    private javax.swing.JButton remove_drinks;
     // End of variables declaration//GEN-END:variables
 }
