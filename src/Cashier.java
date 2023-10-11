@@ -354,8 +354,9 @@ public class Cashier extends javax.swing.JPanel {
         for(int i = 0; i < this.drinks.size(); ++i){
             drink curr = this.drinks.get(i);
             int drink_id = curr.drink_id;
-            String name = curr.name;
             int num_toppings = curr.num_toppings;
+            int topping_id = 0;
+            String name = curr.name;
             float base_price = (float) (curr.price - curr.num_toppings * 0.75);
             
             for(int k = 0; k < curr.used_ingredients.size(); ++k){
@@ -365,8 +366,30 @@ public class Cashier extends javax.swing.JPanel {
             }
             
             //topping_id, drink_id, name <- last [num_toppings] of used_ingre
-            for(int x = 0; x < num_toppings; ++x){
-                //TODO WRITE TO TOPPINGS
+            for(int x = curr.used_ingredients.size() - num_toppings; x < num_toppings; ++x){
+                String topping_str = "";
+                try {
+                    Statement stmt = conn.createStatement();
+                    String sqlStatement = "SELECT * FROM toppings";
+
+                    ResultSet result = stmt.executeQuery(sqlStatement);
+
+                    while(result.next()) {
+                        topping_str = (result.getString("topping_id"));
+                    }
+                    topping_id = Integer.parseInt(topping_str) + 1;
+                    stmt = conn.createStatement();
+                    sqlStatement = "INSERT INTO toppings (topping_id, drink_id, name) VALUES (" + topping_id + drink_id + curr.used_ingredients.get(x)+ ")";
+                    
+                }
+                catch (Exception e) {
+                    e.printStackTrace();
+                    System.err.println(e.getClass().getName()+": "+e.getMessage());
+                }
+
+                
+                
+                // TODO add topping -> topping_id, drink_id, name
             }
             
             // drink: drink_id, order_id, name, base_price, # toppings
