@@ -32,17 +32,17 @@ public class GUI {
 
         Login login_panel = new Login(frame, frame_handler);
         Redirect redirect_panel = new Redirect(frame, frame_handler);
-        //Manager manager_panel = new Manager(frame, frame_handler);
+        Manager manager_panel = new Manager(frame, frame_handler);
         Cashier cashier_panel = new Cashier(frame, frame_handler);
 
         frame_handler.login = login_panel;
         frame_handler.redirect = redirect_panel;
-        //frame_handler.manager = manager_panel;
+        frame_handler.manager = manager_panel;
         frame_handler.cashier = cashier_panel;
 
         frame.add(login_panel);
         frame.add(redirect_panel);
-        //frame.add(manager_panel);
+        frame.add(manager_panel);
         frame.add(cashier_panel);
         frame.setContentPane(login_panel);
         frame.setVisible(true);
