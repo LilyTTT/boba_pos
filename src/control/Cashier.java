@@ -1,10 +1,12 @@
 package control;
 
 import cashier_panels.drink;
-import control.FrameHandler;
 import cashier_panels.tarobean;
 import cashier_panels.sgcane;
 import cashier_panels.tea;
+import cashier_panels.bwsg;
+import control.FrameHandler;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.sql.*;
@@ -335,7 +337,10 @@ public class Cashier extends javax.swing.JPanel {
     }//GEN-LAST:event_tea_btnActionPerformed
 
     private void bwsg_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bwsg_btnActionPerformed
-        // TODO add your handling code here:
+        jPanel2.removeAll();
+        jPanel2.repaint();
+        bwsg temp = new bwsg();
+        temp.load_bwsg(jPanel2, this);
     }//GEN-LAST:event_bwsg_btnActionPerformed
 
     private void fruits_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fruits_btnActionPerformed

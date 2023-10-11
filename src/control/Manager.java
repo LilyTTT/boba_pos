@@ -1,6 +1,7 @@
 package control;
 
 
+import manager_panels.Menu;
 import manager_panels.OrderHistory;
 import manager_panels.Ingredient;
 import control.FrameHandler;
@@ -33,6 +34,9 @@ public class Manager extends javax.swing.JPanel {
         OrderHistory order_history = new OrderHistory();
         order_history.load_table();
         order_history.load_order_history(jPanel2);
+        Menu menu = new Menu();
+        menu.load_table();
+        menu.load_drinks(jPanel3);
     }
     
     public void set_staff_id(int id) {
@@ -99,7 +103,7 @@ public class Manager extends javax.swing.JPanel {
             .addGap(0, 709, Short.MAX_VALUE)
         );
 
-        jTabbedPane2.addTab("tab3", jPanel3);
+        jTabbedPane2.addTab("Menu", jPanel3);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
