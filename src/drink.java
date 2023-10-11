@@ -30,7 +30,7 @@ public class drink extends javax.swing.JPanel {
      * Creates new form drink
      */
     public drink() {
-        initComponents();
+        //initComponents();
     }
 
     public Connection connect(){
@@ -595,9 +595,22 @@ public class drink extends javax.swing.JPanel {
         this.drink_id = Integer.parseInt(drink_str) + 1;
         
         //add this drink to the drinks in checkout
+       
+        int curr_id = this.drink_id;
         for (int i = 0; i < this.qty; ++i){
-            this.worker.drinks.add(this);
-            this.drink_id += 1;
+            drink temp = new drink();
+            temp.worker = this.worker;
+            temp.name = this.name;
+            temp.base_id = this.base_id;
+            temp.used_ingredients = this.used_ingredients;
+            temp.price = this.price;
+            temp.num_toppings = this.num_toppings;
+            temp.qty = this.qty;
+            temp.drink_id = curr_id;
+            temp.panel = this.panel;
+
+            this.worker.drinks.add(temp);
+            curr_id += 1;
         }
   
         //display the drink in checkout

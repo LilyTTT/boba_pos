@@ -29,16 +29,18 @@ public class FrameHandler implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         String action = e.getActionCommand();
-        staff_id = login.staff_id;
+        this.staff_id = login.staff_id;
         Boolean temp = false;
         if ("Login".equals(action) && (temp = login.is_manager())) {
             frame.setContentPane(redirect);
         }
         else if ("Manager View".equals(action)) {
             frame.setContentPane(manager);
+            manager.set_staff_id(this.staff_id);
         }
         else if ("Cashier View".equals(action) || ("Login".equals(action) && !temp)) {
             frame.setContentPane(cashier);
+            cashier.set_staff_id(this.staff_id);
         }
         else if ("Home".equals(action)) {
             frame.setContentPane(login);

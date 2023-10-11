@@ -14,7 +14,7 @@ public class Login extends javax.swing.JPanel {
     Login(JFrame frame, FrameHandler fh) {
         this.frame = frame;
         this.fh = fh;
-        staff_id = 0;
+        this.staff_id = 0;
         try {
             load_staff();
             load_login();
@@ -28,9 +28,9 @@ public class Login extends javax.swing.JPanel {
         String tf = staff_tf.getText();
         
         if(id_list.contains(Integer.valueOf(tf))) {
-            staff_id = Integer.parseInt(tf);
+            this.staff_id = Integer.parseInt(staff_tf.getText());
             JOptionPane.showMessageDialog(frame, "Successful log in");
-            if (role_list.get(id_list.indexOf(staff_id)).equals("Manager")) {
+            if (role_list.get(id_list.indexOf(this.staff_id)).equals("Manager")) {
                 return true; 
             }
         }
@@ -131,6 +131,7 @@ public class Login extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
+        this.staff_id = Integer.parseInt(staff_tf.getText());
         fh.actionPerformed(evt);
     }//GEN-LAST:event_loginActionPerformed
 

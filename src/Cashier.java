@@ -5,6 +5,10 @@ import java.sql.*;
 import java.util.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.lang.Math;
 
 public class Cashier extends javax.swing.JPanel {
     
@@ -69,7 +73,7 @@ public class Cashier extends javax.swing.JPanel {
         traditional_btn = new javax.swing.JButton();
         menu_header = new javax.swing.JLabel();
         pay_btn = new javax.swing.JButton();
-        discount_tips_btn = new javax.swing.JButton();
+        home = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(1200, 800));
         setVerifyInputWhenFocusTarget(false);
@@ -212,7 +216,7 @@ public class Cashier extends javax.swing.JPanel {
                     .addComponent(tarobean_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(60, 60, 60)
                 .addComponent(traditional_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(165, Short.MAX_VALUE))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
 
         menu_scroll.setViewportView(jPanel2);
@@ -227,10 +231,10 @@ public class Cashier extends javax.swing.JPanel {
             }
         });
 
-        discount_tips_btn.setText("begone");
-        discount_tips_btn.addActionListener(new java.awt.event.ActionListener() {
+        home.setText("Home");
+        home.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                discount_tips_btnActionPerformed(evt);
+                homeActionPerformed(evt);
             }
         });
 
@@ -245,18 +249,20 @@ public class Cashier extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(subtotal_lable)
                             .addComponent(balance_label))
-                        .addGap(122, 122, 122)
+                        .addGap(107, 107, 107)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(total_label)
                             .addComponent(tax_label)
-                            .addComponent(pay_btn))
-                        .addGap(155, 155, 155))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(pay_btn)))
+                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(order_scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(order_scroll, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(home)))
+                .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -264,7 +270,7 @@ public class Cashier extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(287, 287, 287)
                         .addComponent(menu_header)))
-                .addContainerGap(455, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,25 +281,29 @@ public class Cashier extends javax.swing.JPanel {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(menu_header)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(menu_scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 773, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(menu_scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 644, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(109, 109, 109))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 799, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(order_scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(home)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(order_scroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(24, 24, 24)
-                                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(subtotal_lable)
                                     .addComponent(tax_label))
-                                .addGap(34, 34, 34)
+                                .addGap(35, 35, 35)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(balance_label)
                                     .addComponent(total_label))
                                 .addGap(36, 36, 36)
                                 .addComponent(pay_btn)))
-                        .addContainerGap())))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -331,10 +341,6 @@ public class Cashier extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_mktea_btnActionPerformed
 
-    private void discount_tips_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discount_tips_btnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_discount_tips_btnActionPerformed
-
     private void pay_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pay_btnActionPerformed
         // get order ID for this order
         Connection conn = this.connect();
@@ -358,13 +364,40 @@ public class Cashier extends javax.swing.JPanel {
         
         this.order_id = Integer.parseInt(order_str) + 1;  
         
+        //orders: order_id, staff_id, data, payment, amount, time
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate curr_date = LocalDate.now();
+        
+        String date = dtf.format(curr_date);
+        
+        dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
+        LocalTime curr_time = LocalTime.now();
+        
+        String time = dtf.format(curr_time);
+        
+        String method = "Cash";
+        if(Math.random() < 0.5){
+            method = "Card";
+        }
+        
+        try{
+            Statement stmt = conn.createStatement();
+            String sqlStatement = "INSERT INTO orders (order_id, staff_id, transaction_date, payment_method, payment_amount, timestamp) VALUES (" + order_id + ","+ staff_id + ", '"+ date + "','"+ method + "',"+ (double)tot_price*(1+0.075) + ",'"+ time + "')";
+            stmt.executeUpdate(sqlStatement);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            System.err.println(e.getClass().getName()+": "+e.getMessage());
+        }
+        
         //load drinks, toppings, drinks_ingredients
         for(int i = 0; i < this.drinks.size(); ++i){
             drink curr = this.drinks.get(i);
             int drink_id = curr.drink_id;
+            System.out.println(drink_id);
             int num_toppings = curr.num_toppings;
             int topping_id = 0;
-            String name = curr.name;
+            String drink_name = curr.name;
             float base_price = (float) (curr.price - curr.num_toppings * 0.75);
             List<String> ingredients_list = new ArrayList<>();
             List<Integer> ingredients_id_list = new ArrayList<>();
@@ -387,20 +420,38 @@ public class Cashier extends javax.swing.JPanel {
                     System.err.println(e.getClass().getName()+": "+e.getMessage());
             }
             
-            //append to drinks_ingredients: drink_id, ingredient_id
+            // append to drinks: drink_id, order_id, name, base_price, # toppings
+            try{
+                Statement stmt = conn.createStatement();
+                String sqlStatement = "INSERT INTO drinks (drink_id, order_id, name, price, num_toppings) VALUES (" + drink_id + ","+ this.order_id + ",'"+ drink_name + "',"+ (double)base_price + "," + num_toppings + ")";
+                stmt.executeUpdate(sqlStatement);
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+                System.err.println(e.getClass().getName()+": "+e.getMessage());
+            }
+            
+            
             for(int k = 0; k < curr.used_ingredients.size(); ++k){
                 int ingredient_id = ingredients_id_list.get(ingredients_list.indexOf(curr.used_ingredients.get(k)));
                 try{
+                    //append to drinks_ingredients: drink_id, ingredient_id
                     Statement stmt = conn.createStatement();
-                    String sqlStatement = "INSERT INTO drinks_ingredients (drink_id, ingredient_id) VALUES (" + drink_id + ingredient_id + ")";
+                    String sqlStatement = "INSERT INTO drinks_ingredients (drink_id, ingredient_id) VALUES (" + drink_id + ","+ ingredient_id + ")";
+                    stmt.executeUpdate(sqlStatement);
+                    
+                    //TODO DEDUCT AMOUNT IN INVENTORY
+                    stmt = conn.createStatement();
+                    sqlStatement = "UPDATE ingredients SET stock_level = stock_level - 1 WHERE ingredient_id=" + ingredient_id;
+                    stmt.executeUpdate(sqlStatement);
+
                 }
                 catch (Exception e) {
                     e.printStackTrace();
                     System.err.println(e.getClass().getName()+": "+e.getMessage());
                 }
-                
-                //TODO DEDUCT AMOUNT IN INVENTORY
             }
+           
             
             //append to topping: topping_id, drink_id, name
             for(int x = curr.used_ingredients.size() - num_toppings; x < num_toppings; ++x){
@@ -408,7 +459,6 @@ public class Cashier extends javax.swing.JPanel {
                 try {
                     Statement stmt = conn.createStatement();
                     String sqlStatement = "SELECT * FROM toppings";
-
                     ResultSet result = stmt.executeQuery(sqlStatement);
 
                     while(result.next()) {
@@ -417,41 +467,38 @@ public class Cashier extends javax.swing.JPanel {
                     
                     topping_id = Integer.parseInt(topping_str) + 1;
                     stmt = conn.createStatement();
-                    sqlStatement = "INSERT INTO toppings (topping_id, drink_id, name) VALUES (" + topping_id + drink_id + curr.used_ingredients.get(x)+ ")";
-                    stmt.executeQuery(sqlStatement);
+                    sqlStatement = "INSERT INTO toppings (topping_id, drink_id, name) VALUES (" + topping_id + ","+ drink_id + ",'"+ curr.used_ingredients.get(x)+ "')";
+                    stmt.executeUpdate(sqlStatement);
                 }
                 catch (Exception e) {
                     e.printStackTrace();
                     System.err.println(e.getClass().getName()+": "+e.getMessage());
                 }
             }
-            
-            // append to drinks: drink_id, order_id, name, base_price, # toppings
-            try{
-                Statement stmt = conn.createStatement();
-                String sqlStatement = "INSERT INTO drinks (drink_id, order_id, name, price, num_toppings) VALUES (" + drink_id + order_id + curr.name + num_toppings + ")";
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-                System.err.println(e.getClass().getName()+": "+e.getMessage());
-            }
         }
         
-        //orders: order_id, staff_id, data, payment, amount, time
-        try{
-                Statement stmt = conn.createStatement();
-                String sqlStatement = "INSERT INTO orders (order_id, staff_id, transaction_date, payment_method, payment_amount, timestamp) VALUES (" + order_id + staff_id + date + method + (double)tot_price*(1+0.075) + timestamp + ")";
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-                System.err.println(e.getClass().getName()+": "+e.getMessage());
-            }
+       
+        
+        //clear order info
+        tax_label.setText("Tax: ");
+        subtotal_lable.setText("Subtotal: ");
+        total_label.setText("Total: " );
+        balance_label.setText("Balance Due: ");
+        
+        drinks.clear();
+        
+        DefaultTableModel model = (DefaultTableModel) order_content.getModel();
+        model.setRowCount(0);
     }//GEN-LAST:event_pay_btnActionPerformed
+
+    private void homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeActionPerformed
+       fh.actionPerformed(evt);
+    }//GEN-LAST:event_homeActionPerformed
     
     public void load_order(){
-        System.out.println("order test");
         float sum = 0;
-        for (int i = 0; i < this.drinks.size(); ++i){
+        int i = 0;
+        while(i < this.drinks.size()){
             drink temp = drinks.get(i);
             sum += temp.price * temp.qty;
             
@@ -465,9 +512,14 @@ public class Cashier extends javax.swing.JPanel {
             order_content.setValueAt(temp.price, i, 2);
             order_content.setValueAt(temp.price*temp.qty, i, 3);
            
+            if(temp.qty == 1){
+                i += 1;
+            }
+            else{
+                i += temp.qty;
+            }
+            
         }
-        
-        System.out.println(sum);
         
         tax_label.setText("Tax: " + Float.toString((float) (0.075 * sum)));
         subtotal_lable.setText("Subtotal: " +Float.toString(sum));
@@ -483,8 +535,8 @@ public class Cashier extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel balance_label;
     private javax.swing.JButton bwsg_btn;
-    private javax.swing.JButton discount_tips_btn;
     private javax.swing.JButton fruits_btn;
+    private javax.swing.JButton home;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
