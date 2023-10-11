@@ -48,7 +48,7 @@ public class tea extends javax.swing.JPanel {
         });
 
         drink1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink1.setText("<html> fresh taro latte");
+        drink1.setText("<html> sun moon lake black tea");
         drink1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 drink1ActionPerformed(evt);
@@ -56,7 +56,7 @@ public class tea extends javax.swing.JPanel {
         });
 
         drink2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink2.setText("<html> fresh taro green tea latte");
+        drink2.setText("<html> pouchong green tea");
         drink2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 drink2ActionPerformed(evt);
@@ -64,7 +64,7 @@ public class tea extends javax.swing.JPanel {
         });
 
         drink3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink3.setText("<html> sweet taro sago latte");
+        drink3.setText("<html> songboling mountain tea");
         drink3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 drink3ActionPerformed(evt);
@@ -72,7 +72,7 @@ public class tea extends javax.swing.JPanel {
         });
 
         drink6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink6.setText("<html> red bean black glutinous rice with coconut latte");
+        drink6.setText("<html> lugu oolong tea");
         drink6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 drink6ActionPerformed(evt);
@@ -80,7 +80,7 @@ public class tea extends javax.swing.JPanel {
         });
 
         drink5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink5.setText("<html> red bean sago latte");
+        drink5.setText("<html> tea w/ original salty cream");
         drink5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 drink5ActionPerformed(evt);
