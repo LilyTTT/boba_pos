@@ -1,9 +1,12 @@
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 public class Ingredient extends javax.swing.JPanel {
     
@@ -12,6 +15,7 @@ public class Ingredient extends javax.swing.JPanel {
     private static final java.util.List<String> stock_list = new ArrayList<>();
     private static final java.util.List<String> restock_list = new ArrayList<>();
     private static final java.util.List<String> supplier_list = new ArrayList<>();
+    private JPanel panel;
     
     public Ingredient() {
         initComponents();
@@ -29,10 +33,10 @@ public class Ingredient extends javax.swing.JPanel {
             
             while(result.next()) {
                 id_list.add(result.getString("ingredient_id"));
-                ingredients_list.add(result.getString("name"));
+                ingredients_list.add(result.getString("name").substring(1));
                 stock_list.add(result.getString("stock_level"));
-                restock_list.add(result.getString("restock_date"));
-                supplier_list.add(result.getString("supplier"));
+                restock_list.add(result.getString("restock_date").substring(1));
+                supplier_list.add(result.getString("supplier").substring(1));
             }
         }
         catch (Exception e) {
@@ -49,6 +53,7 @@ public class Ingredient extends javax.swing.JPanel {
     }
     
     public void load_ingredients(JPanel panel) {
+        this.panel = panel;
         java.awt.GridBagConstraints gridBagConstraints;
         
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -83,16 +88,25 @@ public class Ingredient extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(add_ingredient)
+                        .addGap(18, 18, 18)
+                        .addComponent(remove_ingredient)))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 633, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(add_ingredient)
+                    .addComponent(remove_ingredient))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
     }
 
@@ -107,6 +121,8 @@ public class Ingredient extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        add_ingredient = new javax.swing.JButton();
+        remove_ingredient = new javax.swing.JButton();
 
         jTable1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -128,27 +144,121 @@ public class Ingredient extends javax.swing.JPanel {
         jTable1.setShowGrid(true);
         jScrollPane1.setViewportView(jTable1);
 
+        add_ingredient.setText("Add");
+        add_ingredient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_ingredientActionPerformed(evt);
+            }
+        });
+
+        remove_ingredient.setText("Remove");
+        remove_ingredient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                remove_ingredientActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(add_ingredient)
+                        .addGap(18, 18, 18)
+                        .addComponent(remove_ingredient)))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 633, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(add_ingredient)
+                    .addComponent(remove_ingredient))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void add_ingredientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_ingredientActionPerformed
+        String input = JOptionPane.showInputDialog(this, "test");
+        String[] split_input = input.split(", ");
+        
+        jdbcpostgreSQL connection = new jdbcpostgreSQL();
+        Connection conn = connection.connect();
+        
+        try {
+            Statement stmt = conn.createStatement();
+            String sqlStatement = "INSERT INTO ingredients (ingredient_id, name, stock_level, restock_date, supplier) VALUES (" + split_input[0] + ", '" + split_input[1] + "', " + split_input[2] + ", '" + split_input[3] + "', '" + split_input[4] + "')";
+            stmt.executeQuery(sqlStatement);
+        }
+        catch (SQLException e) {
+            if (("ERROR: duplicate key value violates unique constraint \"ingredients_pkey\"\n  Detail: Key (ingredient_id)=(101) already exists.").equals(e.getMessage())) {
+                JOptionPane.showMessageDialog(this, "Cannot add duplicate Ingredient ID");
+            }
+            e.printStackTrace();
+            System.err.println(e.getClass().getName()+": "+e.getMessage());
+        }
+        
+        try {
+            conn.close();
+        } 
+        catch(SQLException e) {
+            System.out.println("Connection NOT Closed.");
+        }
+        
+        this.panel.removeAll();
+        this.panel.repaint();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+        load_table();
+        load_ingredients(panel);
+    }//GEN-LAST:event_add_ingredientActionPerformed
+
+    private void remove_ingredientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remove_ingredientActionPerformed
+        String input = JOptionPane.showInputDialog(this, "test");
+        
+        jdbcpostgreSQL connection = new jdbcpostgreSQL();
+        Connection conn = connection.connect();
+        
+        try {
+            Statement stmt = conn.createStatement();
+            String sqlStatement = "DELETE FROM ingredients WHERE ingredient_id = " + input;
+            stmt.executeQuery(sqlStatement);
+        }
+        catch (SQLException e) {
+            if (!id_list.contains(input)) {
+                JOptionPane.showMessageDialog(this, "Ingredient ID does not exist.");
+            }
+            e.printStackTrace();
+            System.err.println(e.getClass().getName()+": "+e.getMessage());
+        }
+        
+        try {
+            conn.close();
+        } 
+        catch(Exception e) {
+            System.out.println("Connection NOT Closed.");
+        }
+        
+        this.panel.removeAll();
+        this.panel.repaint();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+        load_table();
+        load_ingredients(panel);
+    }//GEN-LAST:event_remove_ingredientActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton add_ingredient;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JButton remove_ingredient;
     // End of variables declaration//GEN-END:variables
 }
