@@ -1,5 +1,6 @@
 package cashier_panels;
 
+import control.Cashier;
 import control.jdbcpostgreSQL;
 import control.Cashier;
 import java.sql.Connection;
@@ -41,6 +42,7 @@ public class sgcane extends javax.swing.JPanel {
         
         return conn;
     }
+    
     public void load_sgcane(JPanel panel, Cashier worker){
         this.worker = worker;
         this.panel = panel;

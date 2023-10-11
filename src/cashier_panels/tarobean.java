@@ -1,5 +1,6 @@
 package cashier_panels;
 
+import control.Cashier;
 import control.jdbcpostgreSQL;
 import control.Cashier;
 import java.io.BufferedReader;

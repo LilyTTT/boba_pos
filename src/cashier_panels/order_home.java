@@ -247,7 +247,10 @@ public class order_home extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tea_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tea_btnActionPerformed
-        // TODO add your handling code here:
+        this.panel.removeAll();
+        this.panel.repaint();
+        tea temp = new tea();
+        temp.load_tea(this.panel, this.worker);
     }//GEN-LAST:event_tea_btnActionPerformed
 
     private void bwsg_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bwsg_btnActionPerformed
