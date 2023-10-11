@@ -509,6 +509,10 @@ public class drink extends javax.swing.JPanel {
         int taro_mochi_ct = (Integer)this.taro_mochi.getValue();
         
         // update used_ingredients
+        used_ingredients.add("cups");
+        used_ingredients.add("straws");
+        used_ingredients.add("lids");
+        
         for(int i = 0; i <agar_boba_ct; i++){
             used_ingredients.add("agar boba");
         }
@@ -570,15 +574,6 @@ public class drink extends javax.swing.JPanel {
         
         this.price += this.num_toppings * 0.75;
         
-        //add this drink to the drinks in checkout
-        this.worker.drinks.add(this);
-        
-        //display the drink in checkout
-        this.worker.load_order();
-        
-        this.panel.removeAll();
-        this.panel.repaint();
-        
         Connection conn = this.connect();
         String drink_str = "";
         
@@ -598,6 +593,18 @@ public class drink extends javax.swing.JPanel {
         }
         
         this.drink_id = Integer.parseInt(drink_str) + 1;
+        
+        //add this drink to the drinks in checkout
+        for (int i = 0; i < this.qty; ++i){
+            this.worker.drinks.add(this);
+            this.drink_id += 1;
+        }
+  
+        //display the drink in checkout
+        this.worker.load_order();
+        
+        this.panel.removeAll();
+        this.panel.repaint();
         
         if(this.base_id < 6){
             //call tea again

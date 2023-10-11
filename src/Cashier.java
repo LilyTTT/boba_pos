@@ -1,4 +1,6 @@
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.sql.*;
 import java.util.*;
 import javax.swing.*;
@@ -6,6 +8,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class Cashier extends javax.swing.JPanel {
     
+    private int staff_id;
     private int order_id;
     private int drink_id;
     private JFrame frame;
@@ -25,6 +28,10 @@ public class Cashier extends javax.swing.JPanel {
     
     public void load_cashier() {
         initComponents();
+    }
+    
+    public void set_staff_id(int id){
+        this.staff_id = id;
     }
     
     public Connection connect(){
@@ -332,6 +339,7 @@ public class Cashier extends javax.swing.JPanel {
         // get order ID for this order
         Connection conn = this.connect();
         String order_str = "";
+        float tot_price = 0;
         
         try {
             Statement stmt = conn.createStatement();
@@ -348,9 +356,9 @@ public class Cashier extends javax.swing.JPanel {
             System.err.println(e.getClass().getName()+": "+e.getMessage());
         }
         
-        this.order_id = Integer.parseInt(order_str) + 1;
+        this.order_id = Integer.parseInt(order_str) + 1;  
         
-        
+        //load drinks, toppings, drinks_ingredients
         for(int i = 0; i < this.drinks.size(); ++i){
             drink curr = this.drinks.get(i);
             int drink_id = curr.drink_id;
@@ -358,14 +366,43 @@ public class Cashier extends javax.swing.JPanel {
             int topping_id = 0;
             String name = curr.name;
             float base_price = (float) (curr.price - curr.num_toppings * 0.75);
+            List<String> ingredients_list = new ArrayList<>();
+            List<Integer> ingredients_id_list = new ArrayList<>();
             
+            tot_price += curr.price;
+            
+            // load ingredients and their IDs into lists
+            try{
+                String line;
+                BufferedReader br = new BufferedReader(new FileReader("./src/csv_files/base_ingredients.csv"));  
+                String[] this_ingredient = null;
+                while ((line = br.readLine()) != null){  
+                    this_ingredient = line.split(","); 
+                    ingredients_list.add(this_ingredient[1]);
+                    ingredients_id_list.add(Integer.parseInt(this_ingredient[0]));
+                }
+            }
+            catch (Exception e) {
+                    e.printStackTrace();
+                    System.err.println(e.getClass().getName()+": "+e.getMessage());
+            }
+            
+            //append to drinks_ingredients: drink_id, ingredient_id
             for(int k = 0; k < curr.used_ingredients.size(); ++k){
-                //TODO WRITE TO INGREDIENTS IN DATABASE
+                int ingredient_id = ingredients_id_list.get(ingredients_list.indexOf(curr.used_ingredients.get(k)));
+                try{
+                    Statement stmt = conn.createStatement();
+                    String sqlStatement = "INSERT INTO drinks_ingredients (drink_id, ingredient_id) VALUES (" + drink_id + ingredient_id + ")";
+                }
+                catch (Exception e) {
+                    e.printStackTrace();
+                    System.err.println(e.getClass().getName()+": "+e.getMessage());
+                }
                 
                 //TODO DEDUCT AMOUNT IN INVENTORY
             }
             
-            //topping_id, drink_id, name <- last [num_toppings] of used_ingre
+            //append to topping: topping_id, drink_id, name
             for(int x = curr.used_ingredients.size() - num_toppings; x < num_toppings; ++x){
                 String topping_str = "";
                 try {
@@ -377,31 +414,38 @@ public class Cashier extends javax.swing.JPanel {
                     while(result.next()) {
                         topping_str = (result.getString("topping_id"));
                     }
+                    
                     topping_id = Integer.parseInt(topping_str) + 1;
                     stmt = conn.createStatement();
                     sqlStatement = "INSERT INTO toppings (topping_id, drink_id, name) VALUES (" + topping_id + drink_id + curr.used_ingredients.get(x)+ ")";
-                    
+                    stmt.executeQuery(sqlStatement);
                 }
                 catch (Exception e) {
                     e.printStackTrace();
                     System.err.println(e.getClass().getName()+": "+e.getMessage());
                 }
-
-                
-                
-                // TODO add topping -> topping_id, drink_id, name
             }
             
-            // drink: drink_id, order_id, name, base_price, # toppings
-            for(int j = 0; j < curr.qty; ++j){
-                //TODO WRITE TO DRINKS IN DATABASE 
+            // append to drinks: drink_id, order_id, name, base_price, # toppings
+            try{
+                Statement stmt = conn.createStatement();
+                String sqlStatement = "INSERT INTO drinks (drink_id, order_id, name, price, num_toppings) VALUES (" + drink_id + order_id + curr.name + num_toppings + ")";
             }
-            
-            // drink_id, ingredients_id
-  
+            catch (Exception e) {
+                e.printStackTrace();
+                System.err.println(e.getClass().getName()+": "+e.getMessage());
+            }
         }
         
-        //orders: order_id, employee_id, data, payment, amount, time
+        //orders: order_id, staff_id, data, payment, amount, time
+        try{
+                Statement stmt = conn.createStatement();
+                String sqlStatement = "INSERT INTO orders (order_id, staff_id, transaction_date, payment_method, payment_amount, timestamp) VALUES (" + order_id + staff_id + date + method + (double)tot_price*(1+0.075) + timestamp + ")";
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+                System.err.println(e.getClass().getName()+": "+e.getMessage());
+            }
     }//GEN-LAST:event_pay_btnActionPerformed
     
     public void load_order(){
