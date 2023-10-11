@@ -1,6 +1,7 @@
 
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.*;
 
 public class FrameHandler implements ActionListener {
 
@@ -11,16 +12,19 @@ public class FrameHandler implements ActionListener {
     public Cashier cashier;
     public int staff_id;
 
-    /**
+ /**
     * Handles the different actions that can be performed on the panels. It listens
     * for the action command from the event, and checks if the user is logging in
     * correctly. If the user is logging in correctly and is a manager, it sets the
-    * content pane to the RedirectScreen panel. Otherwise, it sets the content pane
-    * to the Server panel. If the action command is for the ManagerView or ServerView,
+    * content pane to the Redirect panel. Otherwise, it sets the content pane
+    * to the Cashier panel. If the action command is for the Manager or Cashier,
     * it sets the content pane to the corresponding panel. Also handles the Home buttons
     * which take the user back to the login screen. After the content pane is
     * set, it repaints and revalidate the JFrame to display the new panel.
+    * @author Linh Nguyen
     * @param e The ActionEvent object that triggered the listener.
+    * @return void
+    * @throws null
     */
     
     @Override

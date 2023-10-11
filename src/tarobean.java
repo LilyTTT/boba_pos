@@ -260,7 +260,7 @@ public class tarobean extends javax.swing.JPanel {
     private void find_drink(String name){
         try{
             String line;
-            BufferedReader br = new BufferedReader(new FileReader("./src/misc/base_drinks.csv"));  
+            BufferedReader br = new BufferedReader(new FileReader("./src/csv_files/base_drinks.csv"));  
             String[] this_drink = null;
             while ((line = br.readLine()) != null){  
                 this_drink = line.split(","); 
