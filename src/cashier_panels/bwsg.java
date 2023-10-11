@@ -1,4 +1,9 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ */
 package cashier_panels;
+
 import control.Cashier;
 import control.jdbcpostgreSQL;
 import java.io.BufferedReader;
@@ -8,7 +13,11 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JPanel;
 
-public class tea extends javax.swing.JPanel {
+/**
+ *
+ * @author ltang
+ */
+public class bwsg extends javax.swing.JPanel {
     private int base_drink_id = 0;
     private String name = "";
     private float price;
@@ -16,8 +25,10 @@ public class tea extends javax.swing.JPanel {
     private JPanel panel;
     public List<drink> drinks = new ArrayList<>();
     public Cashier worker;
-
-    public tea() {
+    /**
+     * Creates new form bwsg
+     */
+    public bwsg() {
         initComponents();
     }
     
@@ -27,17 +38,23 @@ public class tea extends javax.swing.JPanel {
         
         return conn;
     }
-
-    public void load_tea(JPanel panel, Cashier worker){
+    
+    public void load_bwsg(JPanel panel, Cashier worker){
         this.worker = worker;
         this.panel = panel;
-
-        back_btn = new javax.swing.JButton();
+        
         drink1 = new javax.swing.JButton();
+        back_btn = new javax.swing.JButton();
         drink2 = new javax.swing.JButton();
         drink3 = new javax.swing.JButton();
-        drink6 = new javax.swing.JButton();
-        drink5 = new javax.swing.JButton();
+
+        drink1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        drink1.setText("<html> brown sugar pearl latte");
+        drink1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                drink1ActionPerformed(evt);
+            }
+        });
 
         back_btn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         back_btn.setText("Back");
@@ -47,16 +64,8 @@ public class tea extends javax.swing.JPanel {
             }
         });
 
-        drink1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink1.setText("<html> fresh taro latte");
-        drink1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                drink1ActionPerformed(evt);
-            }
-        });
-
         drink2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink2.setText("<html> fresh taro green tea latte");
+        drink2.setText("<html> brown sugar pearl milk tea");
         drink2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 drink2ActionPerformed(evt);
@@ -64,26 +73,10 @@ public class tea extends javax.swing.JPanel {
         });
 
         drink3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink3.setText("<html> sweet taro sago latte");
+        drink3.setText("<html> brown sugar pearl matcha latte");
         drink3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 drink3ActionPerformed(evt);
-            }
-        });
-
-        drink6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink6.setText("<html> red bean black glutinous rice with coconut latte");
-        drink6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                drink6ActionPerformed(evt);
-            }
-        });
-
-        drink5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink5.setText("<html> red bean sago latte");
-        drink5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                drink5ActionPerformed(evt);
             }
         });
 
@@ -96,13 +89,9 @@ public class tea extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(back_btn)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(drink6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(drink1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(drink1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(60, 60, 60)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(drink2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(drink5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(drink2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(61, 61, 61)
                         .addComponent(drink3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(189, Short.MAX_VALUE))
@@ -110,22 +99,18 @@ public class tea extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(back_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(drink1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(drink1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(drink2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(54, 54, 54)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(drink2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(drink3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(61, 61, 61)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(drink5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(drink6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(374, Short.MAX_VALUE))
+                        .addComponent(drink3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(583, Short.MAX_VALUE))
         );
     }
     
@@ -158,7 +143,7 @@ public class tea extends javax.swing.JPanel {
         }
         
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -168,12 +153,18 @@ public class tea extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        back_btn = new javax.swing.JButton();
         drink1 = new javax.swing.JButton();
+        back_btn = new javax.swing.JButton();
         drink2 = new javax.swing.JButton();
         drink3 = new javax.swing.JButton();
-        drink6 = new javax.swing.JButton();
-        drink5 = new javax.swing.JButton();
+
+        drink1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        drink1.setText("<html> brown sugar pearl latte");
+        drink1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                drink1ActionPerformed(evt);
+            }
+        });
 
         back_btn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         back_btn.setText("Back");
@@ -183,16 +174,8 @@ public class tea extends javax.swing.JPanel {
             }
         });
 
-        drink1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink1.setText("<html> sun moon lake black tea");
-        drink1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                drink1ActionPerformed(evt);
-            }
-        });
-
         drink2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink2.setText("<html> pouchong green tea");
+        drink2.setText("<html> brown sugar pearl milk tea");
         drink2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 drink2ActionPerformed(evt);
@@ -200,26 +183,10 @@ public class tea extends javax.swing.JPanel {
         });
 
         drink3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink3.setText("<html> songboling mountain tea");
+        drink3.setText("<html> brown sugar pearl matcha latte");
         drink3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 drink3ActionPerformed(evt);
-            }
-        });
-
-        drink6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink6.setText("<html> lugu oolong tea");
-        drink6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                drink6ActionPerformed(evt);
-            }
-        });
-
-        drink5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink5.setText("<html> tea w/ original salty cream");
-        drink5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                drink5ActionPerformed(evt);
             }
         });
 
@@ -232,13 +199,9 @@ public class tea extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(back_btn)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(drink6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(drink1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(drink1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(60, 60, 60)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(drink2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(drink5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(drink2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(61, 61, 61)
                         .addComponent(drink3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(189, Short.MAX_VALUE))
@@ -246,24 +209,25 @@ public class tea extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(back_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(drink1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(drink1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(drink2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(54, 54, 54)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(drink2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(drink3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(61, 61, 61)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(drink5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(drink6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(374, Short.MAX_VALUE))
+                        .addComponent(drink3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(583, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void drink1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drink1ActionPerformed
+        this.name = drink1.getText();
+        this.find_drink(drink1.getText());
+    }//GEN-LAST:event_drink1ActionPerformed
 
     private void back_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_btnActionPerformed
         panel.removeAll();
@@ -271,11 +235,6 @@ public class tea extends javax.swing.JPanel {
         order_home temp = new order_home();
         temp.load_home(this.panel, this.worker);
     }//GEN-LAST:event_back_btnActionPerformed
-
-    private void drink1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drink1ActionPerformed
-        this.name = drink1.getText();
-        this.find_drink(drink1.getText());
-    }//GEN-LAST:event_drink1ActionPerformed
 
     private void drink2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drink2ActionPerformed
         this.name = drink2.getText();
@@ -287,23 +246,11 @@ public class tea extends javax.swing.JPanel {
         this.find_drink(drink3.getText());
     }//GEN-LAST:event_drink3ActionPerformed
 
-    private void drink6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drink6ActionPerformed
-        this.name = drink6.getText();
-        this.find_drink(drink6.getText());
-    }//GEN-LAST:event_drink6ActionPerformed
-
-    private void drink5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drink5ActionPerformed
-        this.name = drink5.getText();
-        this.find_drink(drink5.getText());
-    }//GEN-LAST:event_drink5ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton back_btn;
     private javax.swing.JButton drink1;
     private javax.swing.JButton drink2;
     private javax.swing.JButton drink3;
-    private javax.swing.JButton drink5;
-    private javax.swing.JButton drink6;
     // End of variables declaration//GEN-END:variables
 }
