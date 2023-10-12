@@ -4,7 +4,6 @@ package control;
 import manager_panels.Menu;
 import manager_panels.OrderHistory;
 import manager_panels.Ingredient;
-import control.FrameHandler;
 import javax.swing.JFrame;
 
 public class Manager extends javax.swing.JPanel {
