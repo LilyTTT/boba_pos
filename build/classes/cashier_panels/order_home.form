@@ -25,14 +25,14 @@
                   </Group>
                   <Component id="traditional_btn" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="bwsg_btn" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                           <Component id="sgcane_btn" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="mktea_btn" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                           <Component id="tarobean_btn" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
@@ -40,7 +40,7 @@
                   </Group>
                   <Component id="seasonal_btn" min="-2" pref="150" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="16" max="32767" attributes="0"/>
+              <EmptySpace pref="25" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -53,18 +53,18 @@
                   <Component id="bwsg_btn" alignment="3" min="-2" pref="150" max="-2" attributes="0"/>
                   <Component id="mktea_btn" alignment="3" min="-2" pref="150" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="fruits_btn" alignment="3" min="-2" pref="150" max="-2" attributes="0"/>
                   <Component id="sgcane_btn" alignment="3" min="-2" pref="150" max="-2" attributes="0"/>
                   <Component id="tarobean_btn" alignment="3" min="-2" pref="150" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="traditional_btn" alignment="3" min="-2" pref="150" max="-2" attributes="0"/>
                   <Component id="seasonal_btn" alignment="3" min="-2" pref="150" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="165" max="32767" attributes="0"/>
+              <EmptySpace pref="185" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
