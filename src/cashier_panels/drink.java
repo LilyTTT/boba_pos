@@ -533,7 +533,7 @@ public class drink extends javax.swing.JPanel {
         jLabel12.setText("Qty");
 
         drink_qty.setName(""); // NOI18N
-        drink_qty.setValue(0);
+        drink_qty.setValue(1);
 
         save_btn.setText("Save");
         save_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -761,8 +761,10 @@ public class drink extends javax.swing.JPanel {
             temp.drink_id = curr_id;
             temp.panel = this.panel;
 
-            this.worker.drinks.add(temp);
-            curr_id += 1;
+            if((temp.name.equals("Seasonal Items") == false) && (temp.qty > 0)){
+                this.worker.drinks.add(temp);
+                curr_id += 1;
+            }
         }
   
         //display the drink in checkout
@@ -1023,25 +1025,27 @@ public class drink extends javax.swing.JPanel {
 
     private void seasonal_nameActionPerformed(java.awt.event.ActionEvent evt) {                                              
         this.name = seasonal_name.getItemAt(seasonal_name.getSelectedIndex());
-        try{
-            String line;
-            BufferedReader br = new BufferedReader(new FileReader("./src/csv_files/base_drinks.csv"));  
-            String[] this_drink = null;
-            while ((line = br.readLine()) != null){  
-                this_drink = line.split(","); 
-                if(this_drink[1].equals(this.name.substring(7))){
-                    break;
+        if(this.name.equals("Seasonal Items") == false){
+            try{
+                String line;
+                BufferedReader br = new BufferedReader(new FileReader("./src/csv_files/base_drinks.csv"));  
+                String[] this_drink = null;
+                while ((line = br.readLine()) != null){  
+                    this_drink = line.split(","); 
+                    if(this_drink[1].equals(this.name.substring(7))){
+                        break;
+                    }
+                }
+
+                this.base_id = Integer.parseInt(this_drink[0]);
+                this.price = Float.parseFloat(this_drink[2]);
+                for(int i = 3; i < this_drink.length; ++i ){
+                    this.used_ingredients.add(this_drink[i]);
                 }
             }
-            
-            this.base_id = Integer.parseInt(this_drink[0]);
-            this.price = Float.parseFloat(this_drink[2]);
-            for(int i = 3; i < this_drink.length; ++i ){
-                this.used_ingredients.add(this_drink[i]);
+            catch(Exception e){
+                e.printStackTrace();
             }
-        }
-        catch(Exception e){
-            e.printStackTrace();
         }
     } 
     // Variables declaration - do not modify//GEN-BEGIN:variables
