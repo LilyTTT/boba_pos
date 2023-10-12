@@ -77,6 +77,10 @@ public class Menu extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(1).setPreferredWidth(250);
+            jTable1.getColumnModel().getColumn(3).setPreferredWidth(500);
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(panel);
         panel.setLayout(layout);
@@ -88,7 +92,9 @@ public class Menu extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(add_drinks)
                         .addGap(18, 18, 18)
-                        .addComponent(remove_drinks))
+                        .addComponent(remove_drinks)
+                        .addGap(18, 18, 18)
+                        .addComponent(change_price))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1140, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
@@ -100,7 +106,8 @@ public class Menu extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(add_drinks)
-                    .addComponent(remove_drinks))
+                    .addComponent(remove_drinks)
+                    .addComponent(change_price))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
     }
@@ -118,6 +125,7 @@ public class Menu extends javax.swing.JPanel {
         jTable1 = new javax.swing.JTable();
         add_drinks = new javax.swing.JButton();
         remove_drinks = new javax.swing.JButton();
+        change_price = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -136,6 +144,10 @@ public class Menu extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(1).setPreferredWidth(250);
+            jTable1.getColumnModel().getColumn(3).setPreferredWidth(500);
+        }
 
         add_drinks.setText("Add");
         add_drinks.addActionListener(new java.awt.event.ActionListener() {
@@ -151,6 +163,13 @@ public class Menu extends javax.swing.JPanel {
             }
         });
 
+        change_price.setText("Price");
+        change_price.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                change_priceActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -161,7 +180,9 @@ public class Menu extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(add_drinks)
                         .addGap(18, 18, 18)
-                        .addComponent(remove_drinks))
+                        .addComponent(remove_drinks)
+                        .addGap(18, 18, 18)
+                        .addComponent(change_price))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1140, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
@@ -173,7 +194,8 @@ public class Menu extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(add_drinks)
-                    .addComponent(remove_drinks))
+                    .addComponent(remove_drinks)
+                    .addComponent(change_price))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -187,13 +209,15 @@ public class Menu extends javax.swing.JPanel {
         
         try {
             Statement stmt = conn.createStatement();
-            String sqlStatement = "INSERT INTO base_drinks (base_id, name, price, list_ingredients) VALUES (" + split_input[0] + ", '" + split_input[1] + "', " + split_input[2] + ", '{'" + split_input[3] + "'}')";
+            String sqlStatement = "INSERT INTO base_drinks (base_id, name, price, list_ingredients) VALUES (" + split_input[0] + ", '" + split_input[1] + "', " + split_input[2] + ", '{" + split_input[3] + "}')";
             stmt.executeQuery(sqlStatement);
         }
         catch (SQLException e) {
-            if (("ERROR: duplicate key value violates unique constraint \"ingredients_pkey\"\n  Detail: Key (ingredient_id)=(101) already exists.").equals(e.getMessage())) {
+            String[] error_input = e.getMessage().split("\n");
+            if ("ERROR: duplicate key value violates unique constraint \"base_drinks_pkey\"".equals(error_input[0])) {
                 JOptionPane.showMessageDialog(this, "Cannot add duplicate Ingredient ID");
             }
+            
             e.printStackTrace();
             System.err.println(e.getClass().getName()+": "+e.getMessage());
         }
@@ -204,6 +228,11 @@ public class Menu extends javax.swing.JPanel {
         catch(SQLException e) {
             System.out.println("Connection NOT Closed.");
         }
+        
+        drink_id_list.clear();
+        name_list.clear();
+        price_list.clear();
+        ingredients_list.clear();
         
         this.panel.removeAll();
         this.panel.repaint();
@@ -239,6 +268,11 @@ public class Menu extends javax.swing.JPanel {
             System.out.println("Connection NOT Closed.");
         }
         
+        drink_id_list.clear();
+        name_list.clear();
+        price_list.clear();
+        ingredients_list.clear();
+        
         this.panel.removeAll();
         this.panel.repaint();
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
@@ -247,9 +281,50 @@ public class Menu extends javax.swing.JPanel {
         load_drinks(panel);
     }//GEN-LAST:event_remove_drinksActionPerformed
 
+    private void change_priceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_change_priceActionPerformed
+        String input = JOptionPane.showInputDialog(this, "test");
+        String[] split_input = input.split(", ");
+        
+        jdbcpostgreSQL connection = new jdbcpostgreSQL();
+        Connection conn = connection.connect();
+        
+        try {
+            Statement stmt = conn.createStatement();
+            String sqlStatement = "UPDATE base_drinks SET price = " + split_input[0] + " WHERE base_id = " + split_input[1];
+            stmt.executeQuery(sqlStatement);
+        }
+        catch (SQLException e) {
+            if (!drink_id_list.contains(split_input[1])) {
+                JOptionPane.showMessageDialog(this, "Drink ID does not exist.");
+            }
+            e.printStackTrace();
+            System.err.println(e.getClass().getName()+": "+e.getMessage());
+        }
+        
+        try {
+            conn.close();
+        } 
+        catch(SQLException e) {
+            System.out.println("Connection NOT Closed.");
+        }
+        
+        drink_id_list.clear();
+        name_list.clear();
+        price_list.clear();
+        ingredients_list.clear();
+        
+        this.panel.removeAll();
+        this.panel.repaint();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+        load_table();
+        load_drinks(panel);
+    }//GEN-LAST:event_change_priceActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add_drinks;
+    private javax.swing.JButton change_price;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton remove_drinks;

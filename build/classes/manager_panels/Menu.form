@@ -23,6 +23,8 @@
                       <Component id="add_drinks" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="remove_drinks" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="change_price" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane1" min="-2" pref="1140" max="-2" attributes="0"/>
               </Group>
@@ -39,6 +41,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="add_drinks" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="remove_drinks" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="change_price" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="15" max="32767" attributes="0"/>
           </Group>
@@ -70,7 +73,7 @@
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="250" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
@@ -80,7 +83,7 @@
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="500" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
@@ -108,6 +111,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="remove_drinksActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="change_price">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Price"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="change_priceActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
