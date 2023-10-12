@@ -179,10 +179,7 @@ public class sgcane extends javax.swing.JPanel {
             }
             drink temp = new drink();
             temp.load_drink(this.panel, this.worker, this.name, this.base_drink_id, this.price, this.ingredients);
-            for(int i = 0; i < temp.qty; ++i){
-                this.worker.drinks.add(temp);
-            }
-            this.worker.load_order();
+            
         }
         catch(Exception e){
             e.printStackTrace();
