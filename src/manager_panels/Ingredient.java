@@ -201,9 +201,11 @@ public class Ingredient extends javax.swing.JPanel {
             stmt.executeQuery(sqlStatement);
         }
         catch (SQLException e) {
-            if (("ERROR: duplicate key value violates unique constraint \"ingredients_pkey\"\n  Detail: Key (ingredient_id)=(101) already exists.").equals(e.getMessage())) {
+            String[] error_input = e.getMessage().split("\n");
+            if ("ERROR: duplicate key value violates unique constraint \"ingredients_pkey\"".equals(error_input[0])) {
                 JOptionPane.showMessageDialog(this, "Cannot add duplicate Ingredient ID");
             }
+            
             e.printStackTrace();
             System.err.println(e.getClass().getName()+": "+e.getMessage());
         }
@@ -214,6 +216,12 @@ public class Ingredient extends javax.swing.JPanel {
         catch(SQLException e) {
             System.out.println("Connection NOT Closed.");
         }
+       
+        id_list.clear();
+        ingredients_list.clear();
+        stock_list.clear();
+        restock_list.clear();
+        supplier_list.clear();
         
         this.panel.removeAll();
         this.panel.repaint();
@@ -248,6 +256,12 @@ public class Ingredient extends javax.swing.JPanel {
         catch(Exception e) {
             System.out.println("Connection NOT Closed.");
         }
+        
+        id_list.clear();
+        ingredients_list.clear();
+        stock_list.clear();
+        restock_list.clear();
+        supplier_list.clear();
         
         this.panel.removeAll();
         this.panel.repaint();
