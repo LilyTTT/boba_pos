@@ -12,7 +12,9 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.io.*;  
+import java.sql.SQLException;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
@@ -483,20 +485,36 @@ public class drink extends javax.swing.JPanel {
     }
     
     private void load_seasonal_name(){
-        try{
-            String line;
-            BufferedReader br = new BufferedReader(new FileReader("./src/csv_files/base_drinks.csv"));  
-            String[] this_drink = null;
-            while ((line = br.readLine()) != null){  
-                this_drink = line.split(","); 
-                if(Integer.parseInt(this_drink[0]) > 44){
-                    this.seasonal_name.addItem("<html> " + this_drink[1]);
-                }
+        jdbcpostgreSQL connection = new jdbcpostgreSQL();
+        Connection conn = connection.connect();
+        
+        try {
+            Statement stmt = conn.createStatement();
+            String sqlStatement = "SELECT * FROM base_drinks WHERE base_id > 44";
+            ResultSet result = stmt.executeQuery(sqlStatement);
+            
+            while(result.next()) {
+                this.seasonal_name.addItem("<html> " + result.getString("name"));
             }
         }
+        
         catch(Exception e){
             e.printStackTrace();
         }
+//        try{
+//            String line;
+//            BufferedReader br = new BufferedReader(new FileReader("./src/csv_files/base_drinks.csv"));  
+//            String[] this_drink = null;
+//            while ((line = br.readLine()) != null){  
+//                this_drink = line.split(","); 
+//                if(Integer.parseInt(this_drink[0]) > 44){
+//                    this.seasonal_name.addItem("<html> " + this_drink[1]);
+//                }
+//            }
+//        }
+//        catch(Exception e){
+//            e.printStackTrace();
+//        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -770,6 +788,7 @@ public class drink extends javax.swing.JPanel {
         //display the drink in checkout
         this.worker.load_order();
         
+        
         this.panel.removeAll();
         this.panel.repaint();
         
@@ -1031,21 +1050,32 @@ public class drink extends javax.swing.JPanel {
         this.name = seasonal_name.getItemAt(seasonal_name.getSelectedIndex());
         if(this.name.equals("Seasonal Items") == false){
             try{
-                String line;
-                BufferedReader br = new BufferedReader(new FileReader("./src/csv_files/base_drinks.csv"));  
-                String[] this_drink = null;
-                while ((line = br.readLine()) != null){  
-                    this_drink = line.split(","); 
-                    if(this_drink[1].equals(this.name.substring(7))){
-                        break;
-                    }
-                }
+                jdbcpostgreSQL connection = new jdbcpostgreSQL();
+                Connection conn = connection.connect();
+                Statement stmt = conn.createStatement();
+                String sqlStatement = "SELECT * FROM base_drinks ORDER BY order_id DESC LIMIT 1";
+                ResultSet result = stmt.executeQuery(sqlStatement);
 
-                this.base_id = Integer.parseInt(this_drink[0]);
-                this.price = Float.parseFloat(this_drink[2]);
-                for(int i = 3; i < this_drink.length; ++i ){
-                    this.used_ingredients.add(this_drink[i]);
-                }
+                this.base_id = Integer.parseInt(result.getString("base_id"));
+                this.price = Float.parseFloat(result.getString("price"));
+                String ing_list = result.getString("list_ingredients");
+                String[] stringArray = ing_list.split(",");
+                this.used_ingredients = Arrays.asList(stringArray);
+//                String line;
+//                BufferedReader br = new BufferedReader(new FileReader("./src/csv_files/base_drinks.csv"));  
+//                String[] this_drink = null;
+//                while ((line = br.readLine()) != null){  
+//                    this_drink = line.split(","); 
+//                    if(this_drink[1].equals(this.name.substring(7))){
+//                        break;
+//                    }
+//                }
+//
+//                this.base_id = Integer.parseInt(this_drink[0]);
+//                this.price = Float.parseFloat(this_drink[2]);
+//                for(int i = 3; i < this_drink.length; ++i ){
+//                    this.used_ingredients.add(this_drink[i]);
+//                }
             }
             catch(Exception e){
                 e.printStackTrace();

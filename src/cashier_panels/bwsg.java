@@ -9,9 +9,14 @@ import control.jdbcpostgreSQL;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import java.util.Arrays;
 
 /**
  *
@@ -115,28 +120,54 @@ public class bwsg extends javax.swing.JPanel {
     }
     
     private void find_drink(String name){
-        try{
-            String line;
-            BufferedReader br = new BufferedReader(new FileReader("./src/csv_files/base_drinks.csv"));  
-            String[] this_drink = null;
-            while ((line = br.readLine()) != null){  
-                this_drink = line.split(","); 
-                if(this_drink[1].equals(this.name.substring(7))){
-                    break;
-                }
-            }
+        jdbcpostgreSQL connection = new jdbcpostgreSQL();
+        Connection conn = connection.connect();
+        
+        try {
+            Statement stmt = conn.createStatement();
+            String sqlStatement = "SELECT * FROM base_drinks ORDER BY order_id DESC LIMIT 1";
+            ResultSet result = stmt.executeQuery(sqlStatement);
             
-            this.base_drink_id = Integer.parseInt(this_drink[0]);
-            this.price = Float.parseFloat(this_drink[2]);
-            for(int i = 3; i < this_drink.length; ++i ){
-                this.ingredients.add(this_drink[i]);
-            }
+            String drinkid_str = (result.getString("base_id"));
+            this.base_drink_id = Integer.parseInt(drinkid_str);
+            this.price = Float.parseFloat(result.getString("price"));
+            String ing_list = result.getString("list_ingredients");
+            String[] stringArray = ing_list.split(",");
+            this.ingredients = Arrays.asList(stringArray);
             drink temp = new drink();
             temp.load_drink(this.panel, this.worker, this.name, this.base_drink_id, this.price, this.ingredients);
         }
-        catch(Exception e){
+        catch (SQLException e) {
+            String[] error_input = e.getMessage().split("\n");
+            if ("ERROR: duplicate key value violates unique constraint \"base_drinks_pkey\"".equals(error_input[0])) {
+                JOptionPane.showMessageDialog(this, "Cannot add duplicate Ingredient ID");
+            }
+            
             e.printStackTrace();
+            System.err.println(e.getClass().getName()+": "+e.getMessage());
         }
+//        try{
+//            String line;
+//            BufferedReader br = new BufferedReader(new FileReader("./src/csv_files/base_drinks.csv"));  
+//            String[] this_drink = null;
+//            while ((line = br.readLine()) != null){  
+//                this_drink = line.split(","); 
+//                if(this_drink[1].equals(this.name.substring(7))){
+//                    break;
+//                }
+//            }
+//            
+//            this.base_drink_id = Integer.parseInt(this_drink[0]);
+//            this.price = Float.parseFloat(this_drink[2]);
+//            for(int i = 3; i < this_drink.length; ++i ){
+//                this.ingredients.add(this_drink[i]);
+//            }
+//            drink temp = new drink();
+//            temp.load_drink(this.panel, this.worker, this.name, this.base_drink_id, this.price, this.ingredients);
+//        }
+//        catch(Exception e){
+//            e.printStackTrace();
+//        }
         
     }
 
