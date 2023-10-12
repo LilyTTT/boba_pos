@@ -6,6 +6,8 @@ import cashier_panels.sgcane;
 import cashier_panels.tea;
 import cashier_panels.bwsg;
 import cashier_panels.fruit;
+import cashier_panels.traditional;
+import cashier_panels.milktea;
 import control.FrameHandler;
 
 import java.io.BufferedReader;
@@ -366,11 +368,17 @@ public class Cashier extends javax.swing.JPanel {
     }//GEN-LAST:event_fruits_btnActionPerformed
 
     private void traditional_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_traditional_btnActionPerformed
-        // TODO add your handling code here:
+        jPanel2.removeAll();
+        jPanel2.repaint();
+        traditional temp = new traditional();
+        temp.load_traditional(jPanel2, this);
     }//GEN-LAST:event_traditional_btnActionPerformed
 
     private void mktea_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mktea_btnActionPerformed
-        // TODO add your handling code here:
+        jPanel2.removeAll();
+        jPanel2.repaint();
+        milktea temp = new milktea();
+        temp.load_milktea(jPanel2, this);
     }//GEN-LAST:event_mktea_btnActionPerformed
 
     private void pay_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pay_btnActionPerformed
