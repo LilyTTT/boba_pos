@@ -512,6 +512,7 @@ public class Cashier extends javax.swing.JPanel {
     public void load_order(){
         float sum = 0;
         int i = 0;
+        int last_row = 0;
         while(i < this.drinks.size()){
             drink temp = drinks.get(i);
             sum += temp.price * temp.qty;
@@ -521,11 +522,13 @@ public class Cashier extends javax.swing.JPanel {
                 model.addRow(new Object[]{"Column 1", "Column 2", "Column 3"});
             }
             
-            order_content.setValueAt(temp.name, i, 0);
-            order_content.setValueAt(temp.qty, i, 1);
-            order_content.setValueAt(temp.price, i, 2);
-            order_content.setValueAt(temp.price*temp.qty, i, 3);
+            order_content.setValueAt(temp.name, last_row, 0);
+            order_content.setValueAt(temp.qty, last_row, 1);
+            order_content.setValueAt(temp.price, last_row, 2);
+            order_content.setValueAt(temp.price*temp.qty, last_row, 3);
            
+            last_row += 1;
+            
             if(temp.qty == 1){
                 i += 1;
             }

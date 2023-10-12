@@ -363,6 +363,7 @@ public class drink extends javax.swing.JPanel {
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel12.setText("Qty");
 
+        drink_qty.setName(""); // NOI18N
         drink_qty.setValue(0);
 
         save_btn.setText("Save");
@@ -409,7 +410,8 @@ public class drink extends javax.swing.JPanel {
                             .addGap(52, 52, 52)
                             .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
-                            .addComponent(agar_boba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(agar_boba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(drink_name, javax.swing.GroupLayout.Alignment.TRAILING))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(65, 65, 65)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -443,18 +445,15 @@ public class drink extends javax.swing.JPanel {
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGap(58, 58, 58)
                                                 .addComponent(save_btn))))
-                                    .addComponent(aloe_vera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(212, 212, 212)
-                        .addComponent(drink_name)))
+                                    .addComponent(aloe_vera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(246, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(36, 36, 36)
                 .addComponent(drink_name)
-                .addGap(54, 54, 54)
+                .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(boba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -563,6 +562,7 @@ public class drink extends javax.swing.JPanel {
             used_ingredients.add("taro mochi");
         }
         
+        
         //update num_toppings
         this.num_toppings += agar_boba_ct;
         this.num_toppings += boba_ct;
@@ -626,10 +626,12 @@ public class drink extends javax.swing.JPanel {
         this.panel.repaint();
         
         if(this.base_id < 6){
-            //call tea again
+            tea temp = new tea();
+            temp.load_tea(this.panel, this.worker);
         }
         else if(this.base_id < 9){
-            //call brown sugar again
+            bwsg temp = new bwsg();
+            temp.load_bwsg(this.panel, this.worker);
         }
         else if(this.base_id < 14){
             //call milk tea
@@ -660,10 +662,12 @@ public class drink extends javax.swing.JPanel {
         this.panel.repaint();
         
         if(this.base_id < 6){
-            //call tea again
+            tea temp = new tea();
+            temp.load_tea(this.panel, this.worker);
         }
         else if(this.base_id < 9){
-            //call brown sugar again
+            bwsg temp = new bwsg();
+            temp.load_bwsg(this.panel, this.worker);
         }
         else if(this.base_id < 14){
             //call milk tea
