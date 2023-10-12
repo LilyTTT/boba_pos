@@ -1,7 +1,5 @@
 package control;
 
-
-import control.FrameHandler;
 import javax.swing.*;
 
 public class Redirect extends javax.swing.JPanel {
@@ -37,6 +35,7 @@ public class Redirect extends javax.swing.JPanel {
         manager_view = new javax.swing.JButton();
         home = new javax.swing.JButton();
 
+        cashier_view.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         cashier_view.setText("Cashier View");
         cashier_view.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -44,6 +43,7 @@ public class Redirect extends javax.swing.JPanel {
             }
         });
 
+        manager_view.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         manager_view.setText("Manager View");
         manager_view.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,26 +63,25 @@ public class Redirect extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(446, 446, 446)
-                .addComponent(cashier_view)
-                .addGap(97, 97, 97)
-                .addComponent(manager_view)
-                .addContainerGap(439, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(home)
-                .addGap(564, 564, 564))
+                .addGap(442, 442, 442)
+                .addComponent(cashier_view, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(79, 79, 79)
+                .addComponent(manager_view, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(443, 443, 443))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(576, 576, 576)
+                .addComponent(home, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(576, 576, 576))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(345, 345, 345)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cashier_view)
-                    .addComponent(manager_view))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 403, Short.MAX_VALUE)
-                .addComponent(home)
-                .addContainerGap())
+                    .addComponent(cashier_view, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manager_view, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(415, 415, 415)
+                .addComponent(home))
         );
     }// </editor-fold>//GEN-END:initComponents
 

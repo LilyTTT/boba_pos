@@ -25,11 +25,11 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="562" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="staff_tf" min="-2" pref="77" max="-2" attributes="0"/>
-                  <Component id="login" min="-2" pref="77" max="-2" attributes="0"/>
-                  <Component id="staff_label" min="-2" max="-2" attributes="0"/>
+                  <Component id="staff_tf" max="32767" attributes="0"/>
+                  <Component id="login" max="32767" attributes="0"/>
+                  <Component id="staff_label" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="561" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="561" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -38,12 +38,12 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="status" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="206" max="-2" attributes="0"/>
-              <Component id="staff_label" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="staff_tf" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="login" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="484" max="32767" attributes="0"/>
+              <Component id="staff_label" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+              <Component id="staff_tf" max="32767" attributes="0"/>
+              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+              <Component id="login" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="484" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -57,6 +57,10 @@
     </Component>
     <Component class="javax.swing.JLabel" name="staff_label">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Helvetica Neue" size="18" style="1"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Enter Staff ID"/>
       </Properties>
     </Component>

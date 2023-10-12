@@ -97,6 +97,8 @@ public class Login extends javax.swing.JPanel {
         status.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         status.setText("hi");
 
+        staff_label.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        staff_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         staff_label.setText("Enter Staff ID");
 
         login.setText("Login");
@@ -114,22 +116,22 @@ public class Login extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(562, 562, 562)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(staff_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(staff_label))
-                .addContainerGap(561, Short.MAX_VALUE))
+                    .addComponent(staff_tf)
+                    .addComponent(login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(staff_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(561, 561, 561))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(status)
                 .addGap(206, 206, 206)
-                .addComponent(staff_label)
+                .addComponent(staff_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(staff_tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(staff_tf)
                 .addGap(18, 18, 18)
-                .addComponent(login)
-                .addGap(0, 484, Short.MAX_VALUE))
+                .addComponent(login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(484, 484, 484))
         );
     }// </editor-fold>//GEN-END:initComponents
 
