@@ -265,6 +265,239 @@ public class drink extends javax.swing.JPanel {
         );
     }
     
+    public void load_seasonal(JPanel panel, Cashier worker){
+        this.panel = panel;
+        this.worker = worker;
+        
+        this.panel.removeAll();
+        this.panel.repaint();
+        
+        boba = new javax.swing.JCheckBox();
+        lychee_coconut_jelly = new javax.swing.JCheckBox();
+        sago = new javax.swing.JCheckBox();
+        aiyu = new javax.swing.JCheckBox();
+        agar_boba = new javax.swing.JCheckBox();
+        aloe_vera = new javax.swing.JCheckBox();
+        jLabel12 = new javax.swing.JLabel();
+        drink_qty = new javax.swing.JSpinner();
+        taro_mochi = new javax.swing.JCheckBox();
+        black_glutinous_rice = new javax.swing.JCheckBox();
+        grass_jelly = new javax.swing.JCheckBox();
+        cheese_foam = new javax.swing.JCheckBox();
+        red_bean = new javax.swing.JCheckBox();
+        seasonal_name = new javax.swing.JComboBox<>();
+        cancel_btn = new javax.swing.JButton();
+        save_btn = new javax.swing.JButton();
+
+        boba.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        boba.setText("boba");
+        boba.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bobaActionPerformed(evt);
+            }
+        });
+
+        lychee_coconut_jelly.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lychee_coconut_jelly.setText("lychee coconut jelly");
+        lychee_coconut_jelly.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lychee_coconut_jellyActionPerformed(evt);
+            }
+        });
+
+        sago.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        sago.setText("sago");
+        sago.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sagoActionPerformed(evt);
+            }
+        });
+
+        aiyu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        aiyu.setText("aiyu");
+        aiyu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aiyuActionPerformed(evt);
+            }
+        });
+
+        agar_boba.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        agar_boba.setText("agar boba");
+        agar_boba.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agar_bobaActionPerformed(evt);
+            }
+        });
+
+        aloe_vera.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        aloe_vera.setText("aloe vera");
+        aloe_vera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aloe_veraActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel12.setText("Qty");
+
+        drink_qty.setName(""); // NOI18N
+        drink_qty.setValue(0);
+
+        taro_mochi.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        taro_mochi.setText("taro mochi");
+        taro_mochi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                taro_mochiActionPerformed(evt);
+            }
+        });
+
+        black_glutinous_rice.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        black_glutinous_rice.setText("black glutinous rice");
+        black_glutinous_rice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                black_glutinous_riceActionPerformed(evt);
+            }
+        });
+
+        grass_jelly.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        grass_jelly.setText("grass jelly");
+        grass_jelly.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                grass_jellyActionPerformed(evt);
+            }
+        });
+
+        cheese_foam.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cheese_foam.setText("cheese foam");
+        cheese_foam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cheese_foamActionPerformed(evt);
+            }
+        });
+
+        red_bean.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        red_bean.setText("red bean");
+        red_bean.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                red_beanActionPerformed(evt);
+            }
+        });
+
+        seasonal_name.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seasonal Items" }));
+        seasonal_name.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seasonal_nameActionPerformed(evt);
+            }
+        });
+
+        cancel_btn.setText("Cancel");
+        cancel_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancel_btnActionPerformed(evt);
+            }
+        });
+
+        save_btn.setText("Save");
+        save_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                save_btnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this.panel);
+        this.panel.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(151, 151, 151)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(40, 40, 40)
+                                .addComponent(jLabel12)
+                                .addGap(18, 18, 18)
+                                .addComponent(drink_qty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lychee_coconut_jelly)
+                                    .addComponent(sago, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(aiyu, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(agar_boba)
+                                    .addComponent(aloe_vera)
+                                    .addComponent(boba, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(38, 38, 38)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(red_bean, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cheese_foam)
+                                    .addComponent(grass_jelly)
+                                    .addComponent(black_glutinous_rice)
+                                    .addComponent(taro_mochi)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(162, 162, 162)
+                                .addComponent(save_btn))
+                            .addComponent(cancel_btn)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(218, 218, 218)
+                        .addComponent(seasonal_name, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(307, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(seasonal_name, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(red_bean, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(boba, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lychee_coconut_jelly, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cheese_foam, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(sago, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(grass_jelly, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(aiyu, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(black_glutinous_rice, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(agar_boba, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(taro_mochi, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(aloe_vera, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(73, 73, 73)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(drink_qty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cancel_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(save_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(181, Short.MAX_VALUE))
+        );
+        this.load_seasonal_name();
+    }
+    
+    private void load_seasonal_name(){
+        try{
+            String line;
+            BufferedReader br = new BufferedReader(new FileReader("./src/csv_files/base_drinks.csv"));  
+            String[] this_drink = null;
+            while ((line = br.readLine()) != null){  
+                this_drink = line.split(","); 
+                if(Integer.parseInt(this_drink[0]) > 44){
+                    this.seasonal_name.addItem("<html> " + this_drink[1]);
+                }
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -550,7 +783,8 @@ public class drink extends javax.swing.JPanel {
             //call milk tea
         }
         else if(this.base_id < 31){
-            //call fruits
+            fruit temp = new fruit();
+            temp.load_fruit(this.panel, this.worker);
         }
         else if(this.base_id < 33){
             sgcane temp = new sgcane();
@@ -560,9 +794,14 @@ public class drink extends javax.swing.JPanel {
             tarobean temp = new tarobean();
             temp.load_tarobean(this.panel, this.worker);
         }
-        else{
+        else if(this.base_id < 45){
             //call traditional
         }
+        else{
+            order_home temp = new order_home();
+            temp.load_home(panel, worker);
+        }
+    
         
         
         
@@ -593,12 +832,12 @@ public class drink extends javax.swing.JPanel {
             sgcane temp = new sgcane();
             temp.load_sgcane(this.panel, this.worker);
         }
-        else if(this.base_id < 39){
-            tarobean temp = new tarobean();
-            temp.load_tarobean(this.panel, this.worker);
+        else if(this.base_id < 45){
+            //call traditional
         }
         else{
-            //call traditional
+            order_home temp = new order_home();
+            temp.load_home(panel, worker);
         }
     }//GEN-LAST:event_cancel_btnActionPerformed
 
@@ -778,7 +1017,29 @@ public class drink extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_aloe_veraActionPerformed
 
-
+    private void seasonal_nameActionPerformed(java.awt.event.ActionEvent evt) {                                              
+        this.name = seasonal_name.getItemAt(seasonal_name.getSelectedIndex());
+        try{
+            String line;
+            BufferedReader br = new BufferedReader(new FileReader("./src/csv_files/base_drinks.csv"));  
+            String[] this_drink = null;
+            while ((line = br.readLine()) != null){  
+                this_drink = line.split(","); 
+                if(this_drink[1].equals(this.name.substring(7))){
+                    break;
+                }
+            }
+            
+            this.base_id = Integer.parseInt(this_drink[0]);
+            this.price = Float.parseFloat(this_drink[2]);
+            for(int i = 3; i < this_drink.length; ++i ){
+                this.used_ingredients.add(this_drink[i]);
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    } 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox agar_boba;
     private javax.swing.JCheckBox aiyu;
@@ -797,4 +1058,5 @@ public class drink extends javax.swing.JPanel {
     private javax.swing.JButton save_btn;
     private javax.swing.JCheckBox taro_mochi;
     // End of variables declaration//GEN-END:variables
+    private javax.swing.JComboBox<String> seasonal_name;
 }
