@@ -2,17 +2,11 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
         <group>
-            <file>file:/Users/linhnguyen/NetBeansProjects/proj2/src/control/Manager.java</file>
-            <file>file:/Users/linhnguyen/NetBeansProjects/proj2/src/control/FrameHandler.java</file>
-            <file>file:/Users/linhnguyen/NetBeansProjects/proj2/src/manager_panels/OrderHistory.java</file>
-            <file>file:/Users/linhnguyen/NetBeansProjects/proj2/src/manager_panels/Menu.java</file>
-            <file>file:/Users/linhnguyen/NetBeansProjects/proj2/src/control/dbSetup.java</file>
-            <file>file:/Users/linhnguyen/NetBeansProjects/proj2/src/manager_panels/Ingredient.java</file>
+            <file>file:/C:/Users/nishk/sql_queries/project-2-08g/src/cashier_panels/tea.java</file>
+            <file>file:/C:/Users/nishk/sql_queries/project-2-08g/src/control/Cashier.java</file>
+            <file>file:/C:/Users/nishk/sql_queries/project-2-08g/src/cashier_panels/fruit.java</file>
+            <file>file:/C:/Users/nishk/sql_queries/project-2-08g/src/cashier_panels/milktea.java</file>
         </group>
-=======
-        <group/>
->>>>>>> bfe818707800cd3d5c43ce2cfbdf9100f2efd593
     </open-files>
 </project-private>

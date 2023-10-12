@@ -15,8 +15,8 @@ import java.awt.*;
 
 public class GUI {
 
-    public static void main(String[] args) {
-        
+    //public static void main(String[] args) {
+     public void startGUI() {   
         FrameHandler frame_handler = new FrameHandler();
         
         JFrame frame = new JFrame("POS");
