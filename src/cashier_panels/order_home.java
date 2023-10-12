@@ -287,7 +287,10 @@ public class order_home extends javax.swing.JPanel {
     }//GEN-LAST:event_bwsg_btnActionPerformed
 
     private void mktea_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mktea_btnActionPerformed
-        // TODO add your handling code here:
+        this.panel.removeAll();
+        this.panel.repaint();
+        milktea temp = new milktea();
+        temp.load_milktea(this.panel, this.worker);
     }//GEN-LAST:event_mktea_btnActionPerformed
 
     private void tarobean_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tarobean_btnActionPerformed
@@ -312,7 +315,10 @@ public class order_home extends javax.swing.JPanel {
     }//GEN-LAST:event_fruits_btnActionPerformed
 
     private void traditional_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_traditional_btnActionPerformed
-        // TODO add your handling code here:
+        this.panel.removeAll();
+        this.panel.repaint();
+        traditional temp = new traditional();
+        temp.load_traditional(this.panel, this.worker);
     }//GEN-LAST:event_traditional_btnActionPerformed
 
     private void seasonal_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seasonal_btnActionPerformed
