@@ -185,7 +185,7 @@ public class Ingredient extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void add_ingredientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_ingredientActionPerformed
-        String input = JOptionPane.showInputDialog(this, "test");
+        String input = JOptionPane.showInputDialog(this, "Add New Ingredient: id, name, stock, restock date, supplier");
         String[] split_input = input.split(", ");
         
         jdbcpostgreSQL connection = new jdbcpostgreSQL();
@@ -228,7 +228,7 @@ public class Ingredient extends javax.swing.JPanel {
     }//GEN-LAST:event_add_ingredientActionPerformed
 
     private void remove_ingredientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remove_ingredientActionPerformed
-        String input = JOptionPane.showInputDialog(this, "test");
+        String input = JOptionPane.showInputDialog(this, "Remove Ingredient: id");
         
         jdbcpostgreSQL connection = new jdbcpostgreSQL();
         Connection conn = connection.connect();

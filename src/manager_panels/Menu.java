@@ -50,15 +50,17 @@ public class Menu extends javax.swing.JPanel {
         catch(Exception e) {
             System.out.println("Connection NOT Closed.");
         }
-    }
-    
+    }               
+                    
     public void load_drinks(JPanel panel) {
         this.panel = panel;
+        
         Object [][] data = new Object[drink_id_list.size()][4];
         for (int i = 0; i < drink_id_list.size(); i++) {
             Object[] row = { drink_id_list.get(i), name_list.get(i), price_list.get(i), ingredients_list.get(i)};
             data[i] = row;
         }
+      
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -202,7 +204,7 @@ public class Menu extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void add_drinksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_drinksActionPerformed
-        String input = JOptionPane.showInputDialog(this, "test");
+        String input = JOptionPane.showInputDialog(this, "Add New Drink: id, name, price, ingredient list");
         String[] split_input = input.split(", ");
         
         jdbcpostgreSQL connection = new jdbcpostgreSQL();
@@ -244,7 +246,7 @@ public class Menu extends javax.swing.JPanel {
     }//GEN-LAST:event_add_drinksActionPerformed
 
     private void remove_drinksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remove_drinksActionPerformed
-        String input = JOptionPane.showInputDialog(this, "test");
+        String input = JOptionPane.showInputDialog(this, "Remove Drink: id");
         
         jdbcpostgreSQL connection = new jdbcpostgreSQL();
         Connection conn = connection.connect();
@@ -283,7 +285,7 @@ public class Menu extends javax.swing.JPanel {
     }//GEN-LAST:event_remove_drinksActionPerformed
 
     private void change_priceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_change_priceActionPerformed
-        String input = JOptionPane.showInputDialog(this, "test");
+        String input = JOptionPane.showInputDialog(this, "Change Price: price, id");
         String[] split_input = input.split(", ");
         
         jdbcpostgreSQL connection = new jdbcpostgreSQL();

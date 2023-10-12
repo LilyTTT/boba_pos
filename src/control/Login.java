@@ -101,6 +101,8 @@ public class Login extends javax.swing.JPanel {
         staff_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         staff_label.setText("Enter Staff ID");
 
+        staff_tf.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
         login.setText("Login");
         login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
