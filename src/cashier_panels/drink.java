@@ -83,7 +83,7 @@ public class drink extends javax.swing.JPanel {
         jLabel12.setText("Qty");
 
         drink_qty.setName(""); // NOI18N
-        drink_qty.setValue(0);
+        drink_qty.setValue(1);
 
         save_btn.setText("Save");
         save_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -341,7 +341,7 @@ public class drink extends javax.swing.JPanel {
         jLabel12.setText("Qty");
 
         drink_qty.setName(""); // NOI18N
-        drink_qty.setValue(0);
+        drink_qty.setValue(1);
 
         taro_mochi.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         taro_mochi.setText("taro mochi");
@@ -831,6 +831,10 @@ public class drink extends javax.swing.JPanel {
         else if(this.base_id < 33){
             sgcane temp = new sgcane();
             temp.load_sgcane(this.panel, this.worker);
+        }
+        else if(this.base_id < 39){
+            tarobean temp = new tarobean();
+            temp.load_tarobean(this.panel, this.worker);
         }
         else if(this.base_id < 45){
             //call traditional
