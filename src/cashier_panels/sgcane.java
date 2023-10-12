@@ -188,6 +188,7 @@ public class sgcane extends javax.swing.JPanel {
     }
     private void drink1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drink1ActionPerformed
         this.name = drink1.getText();
+        System.out.println(this.name);
         this.find_drink(drink1.getText()); 
     }//GEN-LAST:event_drink1ActionPerformed
 

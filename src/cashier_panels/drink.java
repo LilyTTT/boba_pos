@@ -782,7 +782,8 @@ public class drink extends javax.swing.JPanel {
             temp.load_bwsg(this.panel, this.worker);
         }
         else if(this.base_id < 14){
-            //call milk tea
+            milktea temp = new milktea();
+            temp.load_milktea(this.panel, this.worker);
         }
         else if(this.base_id < 31){
             fruit temp = new fruit();
@@ -797,7 +798,8 @@ public class drink extends javax.swing.JPanel {
             temp.load_tarobean(this.panel, this.worker);
         }
         else if(this.base_id < 45){
-            //call traditional
+            traditional temp = new traditional();
+            temp.load_traditional(this.panel, this.worker);
         }
         else{
             order_home temp = new order_home();
@@ -824,7 +826,8 @@ public class drink extends javax.swing.JPanel {
             temp.load_bwsg(this.panel, this.worker);
         }
         else if(this.base_id < 14){
-            //call milk tea
+            milktea temp = new milktea();
+            temp.load_milktea(this.panel, this.worker);
         }
         else if(this.base_id < 31){
             fruit temp = new fruit();
@@ -839,7 +842,8 @@ public class drink extends javax.swing.JPanel {
             temp.load_tarobean(this.panel, this.worker);
         }
         else if(this.base_id < 45){
-            //call traditional
+            traditional temp = new traditional();
+            temp.load_traditional(this.panel, this.worker);
         }
         else{
             order_home temp = new order_home();
