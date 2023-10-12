@@ -1,21 +1,18 @@
 package control;
 
-import control.Cashier;
-import control.FrameHandler;
 import javax.swing.*;
 import java.awt.*;
-import java.sql.*;
-import java.util.*;
 
 /**
     * The Main class contains the main method that creates an instance of FrameHandler
     * to handle the different panels that will be displayed in the JFrame. It creates
     * and sets up the JFrame with a specified size and location, and adds four different
-    * panels - Login, RedirectScreen, ManagerUI, and Server. The content pane is initialized
-    * to the login screen, where if a manager logs in, they will go to the RedirectScreen and 
-    * if a server logs in, they will go directly to the server panel. The FrameHandler handles
+    * panels - Login, Redirect, Manager, and Cashier. The content pane is initialized
+    * to the login screen, where if a manager logs in, they will go to the Redirect and 
+    * if a cashier logs in, they will go directly to the cashier panel. The FrameHandler handles
     * switching between frames in the overall GUI.
     */
+
 public class GUI {
 
     public static void main(String[] args) {
@@ -24,12 +21,13 @@ public class GUI {
         
         JFrame frame = new JFrame("POS");
         frame_handler.frame = frame;
-        frame.setSize(new Dimension(1200, 800));
+        frame.setSize(new Dimension(600, 600));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLocation(new Point(500, 300));
 
-//        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-//        frame.setSize(screenSize.width, screenSize.height);
-//        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        frame.setSize(screenSize.width, screenSize.height);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
 //        Image icon = Toolkit.getDefaultToolkit().getImage("../misc/smoothie_king.jpg");
 //        frame.setIconImage(icon);

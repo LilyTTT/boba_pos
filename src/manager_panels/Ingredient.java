@@ -1,6 +1,5 @@
 package manager_panels;
 
-
 import control.jdbcpostgreSQL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -57,19 +56,16 @@ public class Ingredient extends javax.swing.JPanel {
     
     public void load_ingredients(JPanel panel) {
         this.panel = panel;
-        java.awt.GridBagConstraints gridBagConstraints;
         
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        
-        setLayout(new java.awt.GridBagLayout());
-
         Object [][] data = new Object[id_list.size()][5];
         for (int i = 0; i < id_list.size(); i++) {
             Object[] row = { id_list.get(i), ingredients_list.get(i), stock_list.get(i), restock_list.get(i), supplier_list.get(i)};
             data[i] = row;
         }
         
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             data,
             new String [] {
@@ -84,6 +80,7 @@ public class Ingredient extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
+        jTable1.setShowGrid(true);
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(panel);
@@ -91,25 +88,25 @@ public class Ingredient extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1140, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(add_ingredient)
-                        .addGap(15, 15, 15)
+                        .addComponent(add_ingredient, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(remove_ingredient)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 633, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(add_ingredient)
                     .addComponent(remove_ingredient))
-                .addContainerGap(15, 15))
+                .addContainerGap())
         );
     }
 
@@ -127,7 +124,6 @@ public class Ingredient extends javax.swing.JPanel {
         add_ingredient = new javax.swing.JButton();
         remove_ingredient = new javax.swing.JButton();
 
-        jTable1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -166,25 +162,25 @@ public class Ingredient extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1140, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(add_ingredient)
+                        .addComponent(add_ingredient, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(remove_ingredient)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 633, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(add_ingredient)
                     .addComponent(remove_ingredient))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
