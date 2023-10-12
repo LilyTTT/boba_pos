@@ -279,7 +279,10 @@ public class order_home extends javax.swing.JPanel {
     }//GEN-LAST:event_sgcane_btnActionPerformed
 
     private void fruits_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fruits_btnActionPerformed
-        // TODO add your handling code here:
+        this.panel.removeAll();
+        this.panel.repaint();
+        fruit temp = new fruit();
+        temp.load_fruit(this.panel, this.worker);
     }//GEN-LAST:event_fruits_btnActionPerformed
 
     private void traditional_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_traditional_btnActionPerformed

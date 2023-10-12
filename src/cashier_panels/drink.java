@@ -77,7 +77,7 @@ public class drink extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(782, 803));
 
         drink_name.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        drink_name.setText("jLabel1");
+        drink_name.setText(this.name);
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel12.setText("Qty");
@@ -586,7 +586,8 @@ public class drink extends javax.swing.JPanel {
             //call milk tea
         }
         else if(this.base_id < 31){
-            //call fruits
+            fruit temp = new fruit();
+            temp.load_fruit(this.panel, this.worker);
         }
         else if(this.base_id < 33){
             sgcane temp = new sgcane();
