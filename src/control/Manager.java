@@ -32,10 +32,10 @@ public class Manager extends javax.swing.JPanel {
         ingredient.load_ingredients(inventory);
         OrderHistory order_history = new OrderHistory();
         order_history.load_table();
-        order_history.load_order_history(order_history);
+        order_history.load_order_history(order_log);
         Menu menu = new Menu();
         menu.load_table();
-        menu.load_drinks(menu);
+        menu.load_drinks(drinks_menu);
     }
 
     public void set_staff_id(int staff_id) {
@@ -46,12 +46,12 @@ public class Manager extends javax.swing.JPanel {
         return inventory;
     }
 
-    public JPanel get_menu() {
-        return menu;
+    public JPanel get_drinks_menu() {
+        return drinks_menu;
     }
 
-    public JPanel get_order_history() {
-        return order_history;
+    public JPanel get_order_log() {
+        return order_log;
     }
     
     /**
@@ -66,8 +66,8 @@ public class Manager extends javax.swing.JPanel {
         back = new javax.swing.JButton();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         inventory = new javax.swing.JPanel();
-        order_history = new javax.swing.JPanel();
-        menu = new javax.swing.JPanel();
+        order_log = new javax.swing.JPanel();
+        drinks_menu = new javax.swing.JPanel();
 
         back.setText("Back");
         back.addActionListener(new java.awt.event.ActionListener() {
@@ -91,33 +91,33 @@ public class Manager extends javax.swing.JPanel {
 
         jTabbedPane2.addTab("Inventory", inventory);
 
-        javax.swing.GroupLayout order_historyLayout = new javax.swing.GroupLayout(order_history);
-        order_history.setLayout(order_historyLayout);
-        order_historyLayout.setHorizontalGroup(
-            order_historyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout order_logLayout = new javax.swing.GroupLayout(order_log);
+        order_log.setLayout(order_logLayout);
+        order_logLayout.setHorizontalGroup(
+            order_logLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1170, Short.MAX_VALUE)
         );
-        order_historyLayout.setVerticalGroup(
-            order_historyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        order_logLayout.setVerticalGroup(
+            order_logLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 716, Short.MAX_VALUE)
         );
 
-        jTabbedPane2.addTab("Order History", order_history);
+        jTabbedPane2.addTab("Order History", order_log);
 
-        menu.setPreferredSize(new java.awt.Dimension(1180, 750));
+        drinks_menu.setPreferredSize(new java.awt.Dimension(1180, 750));
 
-        javax.swing.GroupLayout menuLayout = new javax.swing.GroupLayout(menu);
-        menu.setLayout(menuLayout);
-        menuLayout.setHorizontalGroup(
-            menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout drinks_menuLayout = new javax.swing.GroupLayout(drinks_menu);
+        drinks_menu.setLayout(drinks_menuLayout);
+        drinks_menuLayout.setHorizontalGroup(
+            drinks_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1170, Short.MAX_VALUE)
         );
-        menuLayout.setVerticalGroup(
-            menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        drinks_menuLayout.setVerticalGroup(
+            drinks_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 716, Short.MAX_VALUE)
         );
 
-        jTabbedPane2.addTab("Menu", menu);
+        jTabbedPane2.addTab("Menu", drinks_menu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -152,9 +152,9 @@ public class Manager extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton back;
+    private javax.swing.JPanel drinks_menu;
     private javax.swing.JPanel inventory;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JPanel menu;
-    private javax.swing.JPanel order_history;
+    private javax.swing.JPanel order_log;
     // End of variables declaration//GEN-END:variables
 }
