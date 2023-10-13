@@ -29,7 +29,7 @@ public class drink extends javax.swing.JPanel {
     public String name;
     public int base_id;
     public List<String> used_ingredients = new ArrayList<>();
-    public float price;
+    public double price;
     public int num_toppings = 0;
     public int qty = 0;
     public int drink_id = 0;
@@ -48,7 +48,7 @@ public class drink extends javax.swing.JPanel {
         return conn;
     }
     
-    public void load_drink(JPanel panel, Cashier worker,  String name, int drink_id, float price, List<String> ingredients){
+    public void load_drink(JPanel panel, Cashier worker,  String name, int drink_id, double price, List<String> ingredients){
         this.worker = worker;
         this.name = name;
         this.base_id = drink_id;
