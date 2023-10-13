@@ -22,8 +22,17 @@
                   <Component id="jScrollPane1" pref="1140" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="add_ingredient" min="-2" pref="72" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="remove_ingredient" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="change_name" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="change_stock" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="change_restock" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="change_supplier" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
@@ -36,9 +45,13 @@
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Component id="jScrollPane1" pref="645" max="32767" attributes="0"/>
               <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="add_ingredient" min="-2" max="-2" attributes="0"/>
-                  <Component id="remove_ingredient" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="add_ingredient" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="remove_ingredient" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="change_name" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="change_stock" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="change_supplier" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="change_restock" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
@@ -115,6 +128,38 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="remove_ingredientActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="change_restock">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Restock Date"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="change_restockActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="change_supplier">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Supplier"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="change_supplierActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="change_name">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Name"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="change_nameActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="change_stock">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Stock Level"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="change_stockActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
