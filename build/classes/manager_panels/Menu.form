@@ -21,10 +21,14 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="add_drinks" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="remove_drinks" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="change_name" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="change_price" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="change_ingredients" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane1" pref="1140" max="32767" attributes="0"/>
@@ -43,6 +47,8 @@
                   <Component id="add_drinks" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="remove_drinks" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="change_price" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="change_name" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="change_ingredients" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -63,7 +69,7 @@
               <Table columnCount="4" rowCount="0">
                 <Column editable="true" title="Drink ID" type="java.lang.String"/>
                 <Column editable="true" title="Name" type="java.lang.String"/>
-                <Column editable="true" title="Stock Level" type="java.lang.String"/>
+                <Column editable="true" title="Price" type="java.lang.String"/>
                 <Column editable="true" title="Ingredients List" type="java.lang.String"/>
               </Table>
             </Property>
@@ -120,6 +126,22 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="change_priceActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="change_name">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Name"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="change_nameActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="change_ingredients">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ingredients"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="change_ingredientsActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

@@ -61,13 +61,13 @@ public class Menu extends javax.swing.JPanel {
             data[i] = row;
         }
       
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+//        jScrollPane1 = new javax.swing.JScrollPane();
+//        jTable1 = new javax.swing.JTable();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             data,
             new String [] {
-                "Drink ID", "Name", "Stock Level", "Ingredients List"
+                "Drink ID", "Name", "Price", "Ingredients List"
             }
         ) {
             Class[] types = new Class [] {
@@ -78,7 +78,7 @@ public class Menu extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+//        jScrollPane1.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
             jTable1.getColumnModel().getColumn(1).setPreferredWidth(250);
             jTable1.getColumnModel().getColumn(3).setPreferredWidth(500);
@@ -93,10 +93,15 @@ public class Menu extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(add_drinks)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(remove_drinks)
-                        .addGap(18, 18, 18)
-                        .addComponent(change_price))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(change_name)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(change_price)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(change_ingredients)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1140, Short.MAX_VALUE))
                 .addGap(20, 20, 20))
         );
@@ -109,7 +114,9 @@ public class Menu extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(add_drinks)
                     .addComponent(remove_drinks)
-                    .addComponent(change_price))
+                    .addComponent(change_price)
+                    .addComponent(change_name)
+                    .addComponent(change_ingredients))
                 .addContainerGap())
         );
     }
@@ -128,13 +135,15 @@ public class Menu extends javax.swing.JPanel {
         add_drinks = new javax.swing.JButton();
         remove_drinks = new javax.swing.JButton();
         change_price = new javax.swing.JButton();
+        change_name = new javax.swing.JButton();
+        change_ingredients = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Drink ID", "Name", "Stock Level", "Ingredients List"
+                "Drink ID", "Name", "Price", "Ingredients List"
             }
         ) {
             Class[] types = new Class [] {
@@ -172,6 +181,20 @@ public class Menu extends javax.swing.JPanel {
             }
         });
 
+        change_name.setText("Name");
+        change_name.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                change_nameActionPerformed(evt);
+            }
+        });
+
+        change_ingredients.setText("Ingredients");
+        change_ingredients.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                change_ingredientsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -181,10 +204,14 @@ public class Menu extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(add_drinks)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(remove_drinks)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(change_name)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(change_price)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(change_ingredients)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1140, Short.MAX_VALUE))
                 .addGap(20, 20, 20))
@@ -198,7 +225,9 @@ public class Menu extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(add_drinks)
                     .addComponent(remove_drinks)
-                    .addComponent(change_price))
+                    .addComponent(change_price)
+                    .addComponent(change_name)
+                    .addComponent(change_ingredients))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -324,9 +353,90 @@ public class Menu extends javax.swing.JPanel {
         load_drinks(panel);
     }//GEN-LAST:event_change_priceActionPerformed
 
+    private void change_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_change_nameActionPerformed
+        String input = JOptionPane.showInputDialog(this, "Change Name: name, id");
+        String[] split_input = input.split(", ");
+        
+        jdbcpostgreSQL connection = new jdbcpostgreSQL();
+        Connection conn = connection.connect();
+        
+        try {
+            Statement stmt = conn.createStatement();
+            String sqlStatement = "UPDATE base_drinks SET name = '" + split_input[0] + "' WHERE base_id = " + split_input[1];
+            stmt.executeQuery(sqlStatement);
+        }
+        catch (SQLException e) {
+            if (!drink_id_list.contains(split_input[1])) {
+                JOptionPane.showMessageDialog(this, "Drink ID does not exist.");
+            }
+            e.printStackTrace();
+            System.err.println(e.getClass().getName()+": "+e.getMessage());
+        }
+        
+        try {
+            conn.close();
+        } 
+        catch(SQLException e) {
+            System.out.println("Connection NOT Closed.");
+        }
+        
+        drink_id_list.clear();
+        name_list.clear();
+        price_list.clear();
+        ingredients_list.clear();
+        
+        this.panel.removeAll();
+        this.panel.repaint();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+        load_table();
+        load_drinks(panel);
+    }//GEN-LAST:event_change_nameActionPerformed
+
+    private void change_ingredientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_change_ingredientsActionPerformed
+        String input = JOptionPane.showInputDialog(this, "Change Ingredients: ingredients, id");
+        String[] split_input = input.split(", ");
+        
+        jdbcpostgreSQL connection = new jdbcpostgreSQL();
+        Connection conn = connection.connect();
+        
+        try {
+            Statement stmt = conn.createStatement();
+            String sqlStatement = "UPDATE base_drinks SET list_ingredients = '{" + split_input[0] + "}' WHERE base_id = " + split_input[1];
+            stmt.executeQuery(sqlStatement);
+        }
+        catch (SQLException e) {
+            if (!drink_id_list.contains(split_input[1])) {
+                JOptionPane.showMessageDialog(this, "Drink ID does not exist.");
+            }
+            e.printStackTrace();
+            System.err.println(e.getClass().getName()+": "+e.getMessage());
+        }
+        
+        try {
+            conn.close();
+        } 
+        catch(SQLException e) {
+            System.out.println("Connection NOT Closed.");
+        }
+        
+        drink_id_list.clear();
+        name_list.clear();
+        price_list.clear();
+        ingredients_list.clear();
+        
+        this.panel.removeAll();
+        this.panel.repaint();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+        load_table();
+        load_drinks(panel);
+    }//GEN-LAST:event_change_ingredientsActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add_drinks;
+    private javax.swing.JButton change_ingredients;
+    private javax.swing.JButton change_name;
     private javax.swing.JButton change_price;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
