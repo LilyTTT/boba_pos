@@ -62,9 +62,6 @@ public class Ingredient extends javax.swing.JPanel {
             Object[] row = { id_list.get(i), ingredients_list.get(i), stock_list.get(i), restock_list.get(i), supplier_list.get(i)};
             data[i] = row;
         }
-        
-//        jScrollPane1 = new javax.swing.JScrollPane();
-//        jTable1 = new javax.swing.JTable();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             data,
@@ -80,8 +77,6 @@ public class Ingredient extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
-//        jTable1.setShowGrid(true);
-//        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(panel);
         panel.setLayout(layout);
