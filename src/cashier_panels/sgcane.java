@@ -11,7 +11,9 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.io.*;  
+import java.sql.SQLException;
 import java.util.Scanner;  
+import javax.swing.JOptionPane;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
@@ -22,7 +24,7 @@ public class sgcane extends javax.swing.JPanel {
 
     private int base_drink_id = 0;
     private String name = "";
-    private float price;
+    private double price;
     private List<String> ingredients = new ArrayList<>();
     private JPanel panel;
     public List<drink> drinks = new ArrayList<>();
@@ -161,31 +163,51 @@ public class sgcane extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void find_drink(String name){
-        try{
-            String line;
-            BufferedReader br = new BufferedReader(new FileReader("./src/csv_files/base_drinks.csv"));  
-            String[] this_drink = null;
-            while ((line = br.readLine()) != null){  
-                this_drink = line.split(","); 
-                if(this_drink[1].equals(this.name.substring(7))){
-                    break;
+        jdbcpostgreSQL connection = new jdbcpostgreSQL();
+        Connection conn = connection.connect();
+        
+        try {
+            Statement stmt = conn.createStatement();
+            String sqlStatement = "SELECT * FROM base_drinks";
+            ResultSet result = stmt.executeQuery(sqlStatement);
+            String ing_list = "";
+            while(result.next()){
+                if(name.contains(result.getString("name"))){
+                    this.base_drink_id = result.getInt("base_id");
+                    System.out.println(base_drink_id+" base_id");
+                    this.price = result.getDouble("price");
+                    System.out.println(price+" price");
+                    
+                    ing_list = result.getString("list_ingredients").substring(1, result.getString("list_ingredients").length()-1);
+                    System.out.println(ing_list);
+                    String[] stringArray = ing_list.split(",");
+                    for (int i = 0; i < stringArray.length; ++i){
+                        if(stringArray[i].startsWith("\"")){
+                            this.ingredients.add(stringArray[i].substring(1, stringArray[i].length()-1));
+                        }
+                        else{
+                            this.ingredients.add(stringArray[i]);
+                        }
+                    }
+                     break;
                 }
             }
-            
-            this.base_drink_id = Integer.parseInt(this_drink[0]);
-            this.price = Float.parseFloat(this_drink[2]);
-            for(int i = 3; i < this_drink.length; ++i ){
-                this.ingredients.add(this_drink[i]);
-            }
+            System.out.println(price);
+            System.out.println(ingredients);
             drink temp = new drink();
             temp.load_drink(this.panel, this.worker, this.name, this.base_drink_id, this.price, this.ingredients);
+        }
+        catch (SQLException e) {
+            String[] error_input = e.getMessage().split("\n");
+            if ("ERROR: duplicate key value violates unique constraint \"base_drinks_pkey\"".equals(error_input[0])) {
+                JOptionPane.showMessageDialog(this, "Cannot add duplicate Ingredient ID");
+            }
             
-        }
-        catch(Exception e){
             e.printStackTrace();
-        }
-        
+            System.err.println(e.getClass().getName()+": "+e.getMessage());
+        }  
     }
+    
     private void drink1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drink1ActionPerformed
         this.name = drink1.getText();
         System.out.println(this.name);
