@@ -49,8 +49,14 @@ public class FrameHandler implements ActionListener {
         else if ("Back".equals(action)) {
             frame.setContentPane(redirect);
         }
+        
+        
 
         frame.repaint();
         frame.revalidate();
+    }
+
+    public Manager getManager() {
+        return manager;
     }
 }

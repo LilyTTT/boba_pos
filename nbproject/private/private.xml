@@ -3,10 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/nishk/sql_queries/project-2-08g/src/cashier_panels/tea.java</file>
-            <file>file:/C:/Users/nishk/sql_queries/project-2-08g/src/control/Cashier.java</file>
-            <file>file:/C:/Users/nishk/sql_queries/project-2-08g/src/cashier_panels/fruit.java</file>
-            <file>file:/C:/Users/nishk/sql_queries/project-2-08g/src/cashier_panels/milktea.java</file>
+            <file>file:/Users/linhnguyen/NetBeansProjects/proj2/src/control/Manager.java</file>
+            <file>file:/Users/linhnguyen/NetBeansProjects/proj2/src/cashier_panels/order_home.java</file>
+            <file>file:/Users/linhnguyen/NetBeansProjects/proj2/src/control/FrameHandler.java</file>
+            <file>file:/Users/linhnguyen/NetBeansProjects/proj2/src/manager_panels/OrderHistory.java</file>
+            <file>file:/Users/linhnguyen/NetBeansProjects/proj2/src/manager_panels/Menu.java</file>
+            <file>file:/Users/linhnguyen/NetBeansProjects/proj2/src/control/Cashier.java</file>
+            <file>file:/Users/linhnguyen/NetBeansProjects/proj2/src/manager_panels/Ingredient.java</file>
         </group>
     </open-files>
 </project-private>

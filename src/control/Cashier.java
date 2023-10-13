@@ -19,7 +19,10 @@ import javax.swing.table.DefaultTableModel;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.lang.Math;
+import manager_panels.OrderHistory;
+import control.FrameHandler;
+import control.Manager;
+import manager_panels.Ingredient;
 
 public class Cashier extends javax.swing.JPanel {
     
@@ -438,7 +441,7 @@ public class Cashier extends javax.swing.JPanel {
         
         try{
             Statement stmt = conn.createStatement();
-            String sqlStatement = "INSERT INTO orders (order_id, staff_id, transaction_date, payment_method, payment_amount, timestamp) VALUES (" + order_id + ","+ staff_id + ", '"+ date + "','"+ method + "',"+ (double)tot_price*(1+0.075) + ",'"+ time + "')";
+            String sqlStatement = "INSERT INTO orders (order_id, staff_id, transaction_date, payment_method, payment_amount, timestamp) VALUES (" + order_id + ","+ staff_id + ", '"+ date + "','"+ method + "',"+ String.format("%.2f", tot_price*(1+0.075)) + ",'"+ time + "')";
             stmt.executeUpdate(sqlStatement);
         }
         catch (Exception e) {
@@ -474,16 +477,6 @@ public class Cashier extends javax.swing.JPanel {
             catch (Exception e) {
                     e.printStackTrace();
                     System.err.println(e.getClass().getName()+": "+e.getMessage());
-            }
-            
-            try{
-                Statement stmt = conn.createStatement();
-                String sqlStatement = "INSERT INTO orders (order_id, staff_id, transaction_date, payment_method, payment_amount, timestamp) VALUES (" + order_id + ","+ staff_id + ", '"+ date + "','"+ method + "',"+ String.format("%.2f", tot_price*(1+0.075)) + ",'"+ time + "')";
-                stmt.executeUpdate(sqlStatement);
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-                System.err.println(e.getClass().getName()+": "+e.getMessage());
             }
             
             // append to drinks: drink_id, order_id, name, base_price, # toppings
@@ -543,7 +536,22 @@ public class Cashier extends javax.swing.JPanel {
             }
         }
         
-       
+        OrderHistory order_history = new OrderHistory();
+        order_history.load_table();
+        order_history.load_order_history(fh.getManager().get_order_log());
+        
+        fh.getManager().getIngredient().getId_list().clear();
+        fh.getManager().getIngredient().getIngredients_list().clear();
+        fh.getManager().getIngredient().getStock_list().clear();
+        fh.getManager().getIngredient().getRestock_list().clear();
+        fh.getManager().getIngredient().getSupplier_list().clear();
+        
+        Ingredient ingredient = new Ingredient();
+        fh.getManager().setIngredient(ingredient);
+        ingredient.load_table();
+        ingredient.load_ingredients(fh.getManager().get_inventory());
+        
+        fh.getManager().setIngredient(ingredient);
         
         //clear order info
         tax_label.setText("Tax: ");

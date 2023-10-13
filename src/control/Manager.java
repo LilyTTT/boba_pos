@@ -11,6 +11,9 @@ public class Manager extends javax.swing.JPanel {
     private JFrame frame;
     private FrameHandler fh;
     private int staff_id;
+    private Ingredient ingredient = new Ingredient();
+    private OrderHistory order_history = new OrderHistory();
+    private Menu menu = new Menu();
     
     public Manager(JFrame frame, FrameHandler fh){
         
@@ -27,13 +30,10 @@ public class Manager extends javax.swing.JPanel {
 
     private void load_manager() {
         initComponents();
-        Ingredient ingredient = new Ingredient();
         ingredient.load_table();
         ingredient.load_ingredients(inventory);
-        OrderHistory order_history = new OrderHistory();
         order_history.load_table();
         order_history.load_order_history(order_log);
-        Menu menu = new Menu();
         menu.load_table();
         menu.load_drinks(drinks_menu);
     }
@@ -53,7 +53,19 @@ public class Manager extends javax.swing.JPanel {
     public JPanel get_order_log() {
         return order_log;
     }
-    
+
+    public void setIngredient(Ingredient ingredient) {
+        this.ingredient = ingredient;
+    }
+
+    public OrderHistory getOrder_history() {
+        return order_history;
+    }
+
+    public Ingredient getIngredient() {
+        return ingredient;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

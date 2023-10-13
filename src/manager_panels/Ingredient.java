@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -116,6 +117,26 @@ public class Ingredient extends javax.swing.JPanel {
                     .addComponent(change_restock))
                 .addContainerGap())
         );
+    }
+
+    public static List<String> getId_list() {
+        return id_list;
+    }
+
+    public static List<String> getIngredients_list() {
+        return ingredients_list;
+    }
+
+    public static List<String> getStock_list() {
+        return stock_list;
+    }
+
+    public static List<String> getRestock_list() {
+        return restock_list;
+    }
+
+    public static List<String> getSupplier_list() {
+        return supplier_list;
     }
 
     /**
