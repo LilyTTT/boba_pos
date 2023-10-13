@@ -32,10 +32,10 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lychee_coconut_jelly" min="-2" max="-2" attributes="0"/>
                           <Component id="sago" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
-                          <Component id="aiyu" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
                           <Component id="agar_boba" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="aloe_vera" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="boba" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
+                          <Component id="aiyu" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
@@ -64,7 +64,7 @@
                       <Component id="drink_qty" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="308" max="32767" attributes="0"/>
+              <EmptySpace pref="281" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -110,7 +110,7 @@
                   <Component id="cancel_btn" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                   <Component id="save_btn" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="192" max="32767" attributes="0"/>
+              <EmptySpace pref="194" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -194,7 +194,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="aiyu"/>
+        <Property name="text" type="java.lang.String" value="aiyu jelly"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="aiyuActionPerformed"/>

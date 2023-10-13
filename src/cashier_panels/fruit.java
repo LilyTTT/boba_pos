@@ -58,17 +58,9 @@ public class fruit extends javax.swing.JPanel {
         drink15 = new javax.swing.JButton();
         drink16 = new javax.swing.JButton();
         drink17 = new javax.swing.JButton();
-        
-        back_btn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        back_btn.setText("Back");
-        back_btn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                back_btnActionPerformed(evt);
-            }
-        });
 
         drink1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink1.setText("<html> avocado mango agar cooler");
+        drink1.setText("<html> mango pomelo sago cooler");
         drink1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 drink1ActionPerformed(evt);
@@ -76,7 +68,7 @@ public class fruit extends javax.swing.JPanel {
         });
 
         drink2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink2.setText("<html> mango pomelo sago cooler");
+        drink2.setText("<html> avocado moon agar cooler");
         drink2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 drink2ActionPerformed(evt);
@@ -84,7 +76,7 @@ public class fruit extends javax.swing.JPanel {
         });
 
         drink3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink3.setText("<html> yiFang taiwan fruit tea");
+        drink3.setText("<html> watermelon coconut agar cooler");
         drink3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 drink3ActionPerformed(evt);
@@ -92,114 +84,122 @@ public class fruit extends javax.swing.JPanel {
         });
 
         drink4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink4.setText("<html> watermelon coconut agar cooler");
+        drink4.setText("<html> kumquat passionfruit tea");
         drink4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                drink6ActionPerformed(evt);
+                drink4ActionPerformed(evt);
             }
         });
 
         drink5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink5.setText("<html> kumquat passion gruit tea");
+        drink5.setText("<html> green plum green tea");
         drink5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 drink5ActionPerformed(evt);
             }
         });
-        
+
         drink6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink6.setText("<html> green plum green tea");
+        drink6.setText("<html> peach fruit tea");
         drink6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                drink1ActionPerformed(evt);
+                drink6ActionPerformed(evt);
             }
         });
 
         drink7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink7.setText("<html> peach fruit tea");
+        drink7.setText("<html> yakult fruit tea");
         drink7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                drink2ActionPerformed(evt);
+                drink7ActionPerformed(evt);
             }
         });
 
         drink8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink8.setText("<html> peach soda pop");
+        drink8.setText("<html> strawberry fruit tea");
         drink8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                drink3ActionPerformed(evt);
+                drink8ActionPerformed(evt);
             }
         });
 
         drink9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink9.setText("<html> strawberry fruit tea");
+        drink9.setText("<html> peach soda pop");
         drink9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                drink6ActionPerformed(evt);
+                drink9ActionPerformed(evt);
             }
         });
 
         drink10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink10.setText("<html> strawberry milk (blended)");
+        drink10.setText("<html> yiFang taiwan fruit tea");
         drink10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                drink5ActionPerformed(evt);
+                drink10ActionPerformed(evt);
             }
         });
-        
+
         drink11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink11.setText("<html> yakult fruit tea");
+        drink11.setText("<html> passionfruit green tea");
         drink11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                drink1ActionPerformed(evt);
+                drink11ActionPerformed(evt);
             }
         });
 
         drink12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink12.setText("<html> passion fruit green tea");
+        drink12.setText("<html> pineapple green tea");
         drink12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                drink2ActionPerformed(evt);
+                drink12ActionPerformed(evt);
             }
         });
 
         drink13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink13.setText("<html> pineapple green tea");
+        drink13.setText("<html> strawberry milk (blended)");
         drink13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                drink3ActionPerformed(evt);
+                drink13ActionPerformed(evt);
             }
         });
 
         drink14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink14.setText("<html> wintermelon lemon tea");
+        drink14.setText("<html> lemon mountain tea");
         drink14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                drink6ActionPerformed(evt);
+                drink14ActionPerformed(evt);
             }
         });
 
         drink15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink15.setText("<html> lemon mountain tea");
+        drink15.setText("<html> lemon green tea");
         drink15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                drink5ActionPerformed(evt);
+                drink15ActionPerformed(evt);
             }
         });
-        
+
         drink16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink16.setText("<html> lemon green tea");
+        drink16.setText("<html> aiyu jelly lemon tea");
         drink16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                drink6ActionPerformed(evt);
+                drink16ActionPerformed(evt);
             }
         });
 
         drink17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink17.setText("<html> aiyu jelly lemon tea");
+        drink17.setText("<html> wintermelon lemon tea");
         drink17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                drink5ActionPerformed(evt);
+                drink17ActionPerformed(evt);
+            }
+        });
+
+        back_btn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        back_btn.setText("Back");
+        back_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                back_btnActionPerformed(evt);
             }
         });
 
@@ -219,25 +219,25 @@ public class fruit extends javax.swing.JPanel {
                         .addComponent(drink10, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(drink7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51)
+                        .addGap(52, 52, 52)
                         .addComponent(drink11, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51)
+                        .addGap(52, 52, 52)
                         .addComponent(drink12, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(drink5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51)
+                        .addGap(52, 52, 52)
                         .addComponent(drink6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51)
+                        .addGap(50, 50, 50)
                         .addComponent(drink9, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(drink15, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51)
+                        .addGap(50, 50, 50)
                         .addComponent(drink16, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51)
+                        .addGap(52, 52, 52)
                         .addComponent(drink3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(drink8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51)
+                        .addGap(52, 52, 52)
                         .addComponent(drink17, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(51, 51, 51)
                         .addComponent(drink14, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -260,7 +260,7 @@ public class fruit extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(drink2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(drink1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(51, 51, 51)
+                .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(drink11, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -269,17 +269,17 @@ public class fruit extends javax.swing.JPanel {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(drink6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(drink9, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(51, 51, 51)
+                        .addGap(52, 52, 52)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(drink7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(drink12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(51, 51, 51)
+                .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(drink15, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(drink16, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(drink3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51)
+                .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(drink8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(drink17, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -390,7 +390,7 @@ public class fruit extends javax.swing.JPanel {
         });
 
         drink4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink4.setText("<html> kumquat passion gruit tea");
+        drink4.setText("<html> kumquat passionfruit tea");
         drink4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 drink4ActionPerformed(evt);
@@ -446,7 +446,7 @@ public class fruit extends javax.swing.JPanel {
         });
 
         drink11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        drink11.setText("<html> passion fruit green tea");
+        drink11.setText("<html> passionfruit green tea");
         drink11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 drink11ActionPerformed(evt);

@@ -126,7 +126,7 @@ public class drink extends javax.swing.JPanel {
         });
 
         aiyu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        aiyu.setText("aiyu");
+        aiyu.setText("aiyu jelly");
         aiyu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aiyuActionPerformed(evt);
@@ -316,7 +316,7 @@ public class drink extends javax.swing.JPanel {
         });
 
         aiyu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        aiyu.setText("aiyu");
+        aiyu.setText("aiyu jelly");
         aiyu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aiyuActionPerformed(evt);
@@ -592,7 +592,7 @@ public class drink extends javax.swing.JPanel {
         });
 
         aiyu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        aiyu.setText("aiyu");
+        aiyu.setText("aiyu jelly");
         aiyu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aiyuActionPerformed(evt);
@@ -669,10 +669,10 @@ public class drink extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lychee_coconut_jelly)
                             .addComponent(sago, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(aiyu, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(agar_boba)
                             .addComponent(aloe_vera)
-                            .addComponent(boba, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(boba, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(aiyu))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(38, 38, 38)
@@ -692,7 +692,7 @@ public class drink extends javax.swing.JPanel {
                             .addComponent(cancel_btn))
                         .addGap(18, 18, 18)
                         .addComponent(drink_qty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(308, Short.MAX_VALUE))
+                .addContainerGap(281, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -729,7 +729,7 @@ public class drink extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancel_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(save_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(192, Short.MAX_VALUE))
+                .addContainerGap(194, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -1008,12 +1008,12 @@ public class drink extends javax.swing.JPanel {
 
     private void aiyuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aiyuActionPerformed
         if (aiyu.isSelected()){
-            this.used_ingredients.add("aiyu");
+            this.used_ingredients.add("aiyu jelly");
             this.num_toppings += 1;
         }
         else{
             for(int i = this.used_ingredients.size() - this.num_toppings; i < this.used_ingredients.size(); ++i){
-                if(this.used_ingredients.get(i).equals("aiyu")){
+                if(this.used_ingredients.get(i).equals("aiyu jelly")){
                     this.used_ingredients.remove(i);
                     this.num_toppings -= 1;
                     break;
