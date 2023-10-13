@@ -422,15 +422,29 @@ public class Cashier extends javax.swing.JPanel {
             method = "Card";
         }
         
-//        try{
-//            Statement stmt = conn.createStatement();
-//            String sqlStatement = "INSERT INTO orders (order_id, staff_id, transaction_date, payment_method, payment_amount, timestamp) VALUES (" + order_id + ","+ staff_id + ", '"+ date + "','"+ method + "',"+ (double)tot_price*(1+0.075) + ",'"+ time + "')";
-//            stmt.executeUpdate(sqlStatement);
-//        }
-//        catch (Exception e) {
-//            e.printStackTrace();
-//            System.err.println(e.getClass().getName()+": "+e.getMessage());
-//        }
+        int p = 0;
+        while(p < this.drinks.size()){
+            drink temp = drinks.get(p);
+            tot_price += temp.price * temp.qty;
+
+            if(temp.qty == 1){
+                p += 1;
+            }
+            else{
+                p += temp.qty;
+            }
+            
+        }
+        
+        try{
+            Statement stmt = conn.createStatement();
+            String sqlStatement = "INSERT INTO orders (order_id, staff_id, transaction_date, payment_method, payment_amount, timestamp) VALUES (" + order_id + ","+ staff_id + ", '"+ date + "','"+ method + "',"+ (double)tot_price*(1+0.075) + ",'"+ time + "')";
+            stmt.executeUpdate(sqlStatement);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            System.err.println(e.getClass().getName()+": "+e.getMessage());
+        }
         
         //load drinks, toppings, drinks_ingredients
         for(int i = 0; i < this.drinks.size(); ++i){
