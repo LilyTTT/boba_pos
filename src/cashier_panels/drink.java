@@ -27,7 +27,7 @@ import javax.swing.JOptionPane;
 public class drink extends javax.swing.JPanel {
     public Cashier worker;
     public String name;
-    public int base_id;
+    public int base_id = 0;
     public List<String> used_ingredients = new ArrayList<>();
     public double price;
     public int num_toppings = 0;
@@ -792,7 +792,11 @@ public class drink extends javax.swing.JPanel {
         this.panel.removeAll();
         this.panel.repaint();
         
-        if(this.base_id < 6){
+        if(this.base_id == 0){
+            order_home temp = new order_home();
+            temp.load_home(panel, worker);
+        }
+        else if(this.base_id < 6){
             tea temp = new tea();
             temp.load_tea(this.panel, this.worker);
         }
@@ -836,7 +840,11 @@ public class drink extends javax.swing.JPanel {
         this.panel.removeAll();
         this.panel.repaint();
         
-        if(this.base_id < 6){
+        if(this.base_id == 0){
+            order_home temp = new order_home();
+            temp.load_home(panel, worker);
+        }
+        else if(this.base_id < 6){
             tea temp = new tea();
             temp.load_tea(this.panel, this.worker);
         }
@@ -1048,38 +1056,45 @@ public class drink extends javax.swing.JPanel {
 
     private void seasonal_nameActionPerformed(java.awt.event.ActionEvent evt) {                                              
         this.name = seasonal_name.getItemAt(seasonal_name.getSelectedIndex());
+        jdbcpostgreSQL connection = new jdbcpostgreSQL();
+        Connection conn = connection.connect();
         if(this.name.equals("Seasonal Items") == false){
-            try{
-                jdbcpostgreSQL connection = new jdbcpostgreSQL();
-                Connection conn = connection.connect();
+            try {
                 Statement stmt = conn.createStatement();
-                String sqlStatement = "SELECT * FROM base_drinks ORDER BY order_id DESC LIMIT 1";
+                String sqlStatement = "SELECT * FROM base_drinks";
                 ResultSet result = stmt.executeQuery(sqlStatement);
+                String ing_list = "";
+                while(result.next()){
+                    if(name.contains(result.getString("name"))){
+                        this.base_id = result.getInt("base_id");
+                        System.out.println(base_id+" base_id");
+                        this.price = result.getDouble("price");
+                        System.out.println(price+" price");
 
-                this.base_id = Integer.parseInt(result.getString("base_id"));
-                this.price = Float.parseFloat(result.getString("price"));
-                String ing_list = result.getString("list_ingredients");
-                String[] stringArray = ing_list.split(",");
-                this.used_ingredients = Arrays.asList(stringArray);
-//                String line;
-//                BufferedReader br = new BufferedReader(new FileReader("./src/csv_files/base_drinks.csv"));  
-//                String[] this_drink = null;
-//                while ((line = br.readLine()) != null){  
-//                    this_drink = line.split(","); 
-//                    if(this_drink[1].equals(this.name.substring(7))){
-//                        break;
-//                    }
-//                }
-//
-//                this.base_id = Integer.parseInt(this_drink[0]);
-//                this.price = Float.parseFloat(this_drink[2]);
-//                for(int i = 3; i < this_drink.length; ++i ){
-//                    this.used_ingredients.add(this_drink[i]);
-//                }
-            }
-            catch(Exception e){
+                        ing_list = result.getString("list_ingredients").substring(1, result.getString("list_ingredients").length()-1);
+                        System.out.println(ing_list);
+                        String[] stringArray = ing_list.split(",");
+                        for (int i = 0; i < stringArray.length; ++i){
+                            if(stringArray[i].startsWith("\"")){
+                                this.used_ingredients.add(stringArray[i].substring(1, stringArray[i].length()-1));
+                            }
+                            else{
+                                this.used_ingredients.add(stringArray[i]);
+                            }
+                        }
+                         break;
+                    }
+                }
+        }
+            catch (SQLException e) {
+                String[] error_input = e.getMessage().split("\n");
+                if ("ERROR: duplicate key value violates unique constraint \"base_drinks_pkey\"".equals(error_input[0])) {
+                    JOptionPane.showMessageDialog(this, "Cannot add duplicate Ingredient ID");
+                }
+
                 e.printStackTrace();
-            }
+                System.err.println(e.getClass().getName()+": "+e.getMessage());
+            }  
         }
     } 
     // Variables declaration - do not modify//GEN-BEGIN:variables
