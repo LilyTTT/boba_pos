@@ -31,21 +31,21 @@
                       <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lychee_coconut_jelly" min="-2" max="-2" attributes="0"/>
-                          <Component id="sago" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
                           <Component id="agar_boba" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="aloe_vera" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="boba" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
                           <Component id="aiyu" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="sago" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="boba" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="38" pref="38" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="red_bean" min="-2" pref="87" max="-2" attributes="0"/>
-                                  <Component id="cheese_foam" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="grass_jelly" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="black_glutinous_rice" min="-2" max="-2" attributes="0"/>
                                   <Component id="taro_mochi" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cheese_foam" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="red_bean" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
