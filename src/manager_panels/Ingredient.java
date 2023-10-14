@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class Ingredient extends javax.swing.JPanel {
@@ -137,6 +138,10 @@ public class Ingredient extends javax.swing.JPanel {
 
     public static List<String> getSupplier_list() {
         return supplier_list;
+    }
+
+    public JTable getjTable1() {
+        return jTable1;
     }
 
     /**

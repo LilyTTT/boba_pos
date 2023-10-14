@@ -58,6 +58,10 @@ public class Manager extends javax.swing.JPanel {
         this.ingredient = ingredient;
     }
 
+    public void setOrder_history(OrderHistory order_history) {
+        this.order_history = order_history;
+    }
+
     public OrderHistory getOrder_history() {
         return order_history;
     }

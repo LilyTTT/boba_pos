@@ -536,9 +536,23 @@ public class Cashier extends javax.swing.JPanel {
             }
         }
         
-        OrderHistory order_history = new OrderHistory();
-        order_history.load_table();
-        order_history.load_order_history(fh.getManager().get_order_log());
+        fh.getManager().getOrder_history().getOrder_id_list().clear();
+        fh.getManager().getOrder_history().getStaff_id_list().clear();
+        fh.getManager().getOrder_history().getTransaction_date_list().clear();
+        fh.getManager().getOrder_history().getPayment_method_list().clear();
+        fh.getManager().getOrder_history().getPayment_amount_list().clear();
+        fh.getManager().getOrder_history().getTimestamp_list().clear();
+        
+        fh.getManager().get_order_log().removeAll();
+        fh.getManager().get_order_log().repaint();
+        
+        DefaultTableModel model1 = (DefaultTableModel) fh.getManager().getOrder_history().getjTable1().getModel();
+        model1.setRowCount(0);
+        
+        fh.getManager().getOrder_history().load_table();
+        fh.getManager().getOrder_history().load_order_history(fh.getManager().get_order_log());
+        
+        fh.getManager().setOrder_history(fh.getManager().getOrder_history());
         
         fh.getManager().getIngredient().getId_list().clear();
         fh.getManager().getIngredient().getIngredients_list().clear();
@@ -546,12 +560,16 @@ public class Cashier extends javax.swing.JPanel {
         fh.getManager().getIngredient().getRestock_list().clear();
         fh.getManager().getIngredient().getSupplier_list().clear();
         
-        Ingredient ingredient = new Ingredient();
-        fh.getManager().setIngredient(ingredient);
-        ingredient.load_table();
-        ingredient.load_ingredients(fh.getManager().get_inventory());
+        fh.getManager().get_inventory().removeAll();
+        fh.getManager().get_inventory().repaint();
         
-        fh.getManager().setIngredient(ingredient);
+        DefaultTableModel model2 = (DefaultTableModel) fh.getManager().getIngredient().getjTable1().getModel();
+        model2.setRowCount(0);
+        
+        fh.getManager().getIngredient().load_table();
+        fh.getManager().getIngredient().load_ingredients(fh.getManager().get_inventory());
+        
+        fh.getManager().setIngredient(fh.getManager().getIngredient());
         
         //clear order info
         tax_label.setText("Tax: ");

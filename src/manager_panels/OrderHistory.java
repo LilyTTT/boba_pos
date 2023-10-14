@@ -5,8 +5,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 
 public class OrderHistory extends javax.swing.JPanel {
 
@@ -112,6 +114,34 @@ public class OrderHistory extends javax.swing.JPanel {
                     .addComponent(slow_day))
                 .addContainerGap())
         );
+    }
+
+    public static List<String> getOrder_id_list() {
+        return order_id_list;
+    }
+
+    public static List<String> getStaff_id_list() {
+        return staff_id_list;
+    }
+
+    public static List<String> getTransaction_date_list() {
+        return transaction_date_list;
+    }
+
+    public static List<String> getPayment_method_list() {
+        return payment_method_list;
+    }
+
+    public static List<String> getPayment_amount_list() {
+        return payment_amount_list;
+    }
+
+    public static List<String> getTimestamp_list() {
+        return timestamp_list;
+    }
+
+    public JTable getjTable1() {
+        return jTable1;
     }
 
     /**
