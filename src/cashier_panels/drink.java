@@ -490,7 +490,7 @@ public class drink extends javax.swing.JPanel {
         
         try {
             Statement stmt = conn.createStatement();
-            String sqlStatement = "SELECT * FROM base_drinks WHERE base_id > 44";
+            String sqlStatement = "SELECT * FROM base_drinks WHERE base_id > 43";
             ResultSet result = stmt.executeQuery(sqlStatement);
             
             while(result.next()) {

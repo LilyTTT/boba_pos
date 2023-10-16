@@ -464,14 +464,15 @@ public class Cashier extends javax.swing.JPanel {
             tot_price += curr.price;
             
             // load ingredients and their IDs into lists
-            try{
-                String line;
-                BufferedReader br = new BufferedReader(new FileReader("./src/csv_files/base_ingredients.csv"));  
-                String[] this_ingredient = null;
-                while ((line = br.readLine()) != null){  
-                    this_ingredient = line.split(","); 
-                    ingredients_list.add(this_ingredient[1]);
-                    ingredients_id_list.add(Integer.parseInt(this_ingredient[0]));
+            try {
+            Statement stmt = conn.createStatement();
+            String sqlStatement = "SELECT * FROM ingredients";
+
+            ResultSet result = stmt.executeQuery(sqlStatement);
+            
+                while(result.next()) {
+                    ingredients_id_list.add(result.getInt("ingredient_id"));
+                    ingredients_list.add(result.getString("name").substring(1));
                 }
             }
             catch (Exception e) {
@@ -492,6 +493,7 @@ public class Cashier extends javax.swing.JPanel {
             
             
             for(int k = 0; k < curr.used_ingredients.size(); ++k){
+                System.out.println(ingredients_list.indexOf(curr.used_ingredients.get(k)));
                 int ingredient_id = ingredients_id_list.get(ingredients_list.indexOf(curr.used_ingredients.get(k)));
                 try{
                     //append to drinks_ingredients: drink_id, ingredient_id
