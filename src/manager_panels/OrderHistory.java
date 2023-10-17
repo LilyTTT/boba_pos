@@ -9,7 +9,10 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
-
+/**
+ *
+ * @author linhnguyen
+ */
 public class OrderHistory extends javax.swing.JPanel {
 
     private static final java.util.List<String> order_id_list = new ArrayList<>();

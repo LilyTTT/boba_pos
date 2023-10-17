@@ -2,7 +2,10 @@ package control;
 
 import javax.swing.*;
 import java.awt.event.*;
-
+/**
+ *
+ * @author linhnguyen
+ */
 public class FrameHandler implements ActionListener {
 
     public JFrame frame;

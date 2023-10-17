@@ -11,7 +11,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-
+/**
+ *
+ * @author linhnguyen
+ */
 public class Ingredient extends javax.swing.JPanel {
     
     private static final java.util.List<String> id_list = new ArrayList<>();

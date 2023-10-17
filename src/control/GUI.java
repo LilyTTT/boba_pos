@@ -12,7 +12,11 @@ import java.awt.*;
     * if a cashier logs in, they will go directly to the cashier panel. The FrameHandler handles
     * switching between frames in the overall GUI.
     */
-
+    
+/**
+ *
+ * @author linhnguyen
+ */
 public class GUI {
 
     //public static void main(String[] args) {

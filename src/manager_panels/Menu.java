@@ -9,7 +9,10 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
-
+/**
+ *
+ * @author linhnguyen
+ */
 public class Menu extends javax.swing.JPanel {
     
     private static final java.util.List<String> drink_id_list = new ArrayList<>();

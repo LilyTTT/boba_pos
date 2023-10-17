@@ -5,7 +5,11 @@ import manager_panels.OrderHistory;
 import manager_panels.Ingredient;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
+import manager_panels.Report;
+/**
+ *
+ * @author linhnguyen
+ */
 public class Manager extends javax.swing.JPanel {
 
     private JFrame frame;
@@ -14,6 +18,7 @@ public class Manager extends javax.swing.JPanel {
     private Ingredient ingredient = new Ingredient();
     private OrderHistory order_history = new OrderHistory();
     private Menu menu = new Menu();
+    private Report report = new Report();
     
     public Manager(JFrame frame, FrameHandler fh){
         
@@ -36,6 +41,7 @@ public class Manager extends javax.swing.JPanel {
         order_history.load_order_history(order_log);
         menu.load_table();
         menu.load_drinks(drinks_menu);
+        report.load(reports);
     }
 
     public void set_staff_id(int staff_id) {
@@ -84,6 +90,7 @@ public class Manager extends javax.swing.JPanel {
         inventory = new javax.swing.JPanel();
         order_log = new javax.swing.JPanel();
         drinks_menu = new javax.swing.JPanel();
+        reports = new javax.swing.JPanel();
 
         back.setText("Back");
         back.addActionListener(new java.awt.event.ActionListener() {
@@ -135,6 +142,19 @@ public class Manager extends javax.swing.JPanel {
 
         jTabbedPane2.addTab("Menu", drinks_menu);
 
+        javax.swing.GroupLayout reportsLayout = new javax.swing.GroupLayout(reports);
+        reports.setLayout(reportsLayout);
+        reportsLayout.setHorizontalGroup(
+            reportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1170, Short.MAX_VALUE)
+        );
+        reportsLayout.setVerticalGroup(
+            reportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 716, Short.MAX_VALUE)
+        );
+
+        jTabbedPane2.addTab("Reports", reports);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -172,5 +192,6 @@ public class Manager extends javax.swing.JPanel {
     private javax.swing.JPanel inventory;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JPanel order_log;
+    private javax.swing.JPanel reports;
     // End of variables declaration//GEN-END:variables
 }
