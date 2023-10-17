@@ -493,7 +493,6 @@ public class Cashier extends javax.swing.JPanel {
             
             
             for(int k = 0; k < curr.used_ingredients.size(); ++k){
-                System.out.println(ingredients_list.indexOf(curr.used_ingredients.get(k)));
                 int ingredient_id = ingredients_id_list.get(ingredients_list.indexOf(curr.used_ingredients.get(k)));
                 try{
                     //append to drinks_ingredients: drink_id, ingredient_id
