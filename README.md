@@ -1,4 +1,4 @@
-# Boba POS System
+# Boba POS System (Desktop Application)
 Texas A&M University CSCE 315 Project 2, implemented using Java Swing and PostgreSQL
 
 [![Yi-Fang-Fruit-Tea-1.jpg](https://i.postimg.cc/NMW6gCGf/Yi-Fang-Fruit-Tea-1.jpg)](https://postimg.cc/34F41BDP)
